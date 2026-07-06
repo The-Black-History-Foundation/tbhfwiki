@@ -19,7 +19,9 @@ data models, or moderation workflows, beyond noting one optional extension depen
 
 ## Scope
 
-- A MediaWiki skin (front-end only) installable via `skins/` + `LocalSettings.php`.
+- Theming (front-end only) for the stock Citizen MediaWiki skin, applied via
+  `MediaWiki:Citizen.css`, `MediaWiki:Citizen.js`, wikitext templates, and a small
+  `LocalSettings.php` config snippet — no forked skin package.
 - Styling for: homepage, article pages (people/places/events), navigation, search,
   infoboxes, and community-contribution touchpoints.
 - Out of scope: new PHP extensions, custom database schemas, submission/review workflow
@@ -34,51 +36,77 @@ Those remain candidates for future, separately-scoped projects once the skin shi
 
 ## Technical Approach
 
-**Base skin: fork and retheme [Citizen](https://www.mediawiki.org/wiki/Skin:Citizen).**
+**Unmodified [Citizen](https://www.mediawiki.org/wiki/Skin:Citizen) skin, themed entirely
+through MediaWiki's on-wiki customization pages — no fork.**
 
 Rationale: Citizen is an actively-maintained, responsive MediaWiki skin that already
 implements the closest existing analog to Fandom's UX — sticky navigation, card-based
-layouts, and a recent-activity rail — so this project overrides its LESS variables,
-typography, and a small set of Mustache templates rather than building layout and
-responsive behavior from scratch. This was chosen over (a) reskinning Vector 2022
-(safer core compatibility, but fights Vector's encyclopedia-style layout to get a
-discovery/community feel) and (b) a from-scratch SkinMustache build (maximum
-distinctiveness, but far higher build and maintenance cost).
+layouts, and a recent-activity rail. Its maintainers expose a first-class theming path
+built for exactly this purpose: CSS custom properties overridden in `MediaWiki:Citizen.css`,
+behavior added via `MediaWiki:Citizen.js` (or a Gadget), and a few `LocalSettings.php`
+config values (logo, default theme). Everything in this spec — palette, typography,
+homepage layout, discovery rail, infobox styling, pull-quote and badge components — is
+achievable through this path, since none of it requires rearranging Citizen's header/
+footer DOM structure. This was chosen over (a) forking Citizen into a custom skin
+package (more files to build and keep in sync with upstream, for no functional gain
+here), (b) reskinning Vector 2022 (safer core compatibility, but fights Vector's
+encyclopedia-style layout to get a discovery/community feel), and (c) a from-scratch
+SkinMustache build (maximum distinctiveness, but far higher build and maintenance cost).
 
 **What this project touches:**
-- `skin.json` + LESS variable overrides (palette, typography, spacing)
-- Overridden Mustache templates: header/masthead, homepage rail, footer, article
-  header, infobox wrapper
+- `MediaWiki:Citizen.css` — palette (CSS custom properties), typography (font-family
+  variables), paper-grain texture, homepage hero/rail/category-tile styling, infobox
+  shell, pull-quote, "sources verified" badge, contribute-prompt footer
+- `MediaWiki:Citizen.js` (or a Gadget) — discovery rail data fetching (Recently Added
+  via core API, Trending via PageViewInfo API if present)
+- `LocalSettings.php` — logo config (`$wgLogos`), default theme if applicable
+- Wikitext templates (e.g. `Template:Infobox`, `Template:FeaturedArticle`,
+  `Template:Quote`) that apply the CSS classes defined above — ordinary wiki content,
+  not code, but part of this project's deliverable so the styling has something to
+  attach to
 - New CSS components: category browse tiles, oral-history pull-quote, "sources
   verified" badge, contribute-prompt footer
 
 **What this project does not touch:**
-- Citizen's existing JS behavior (sticky nav, collapsible TOC, search-as-you-type)
+- Citizen's PHP, Mustache templates, or JS internals (sticky nav, collapsible TOC,
+  search-as-you-type) — Citizen is installed and upgraded unmodified
 - Core MediaWiki functionality (editing, categories, talk pages, permissions)
 - Any PHP extension logic
 
 **Dependency:** The homepage "Trending / Most Viewed" module requires a page-view-
-tracking extension (e.g. PageViewInfo) to be installed on the wiki. The skin styles
-this module, but does not generate view-count data itself. "Recently Added" needs no
-extra extension (built on `Special:RecentChanges`/`Special:NewPages`).
+tracking extension (e.g. PageViewInfo) to be installed on the wiki. Our JS styles and
+populates this module from that extension's API, but does not generate view-count data
+itself. "Recently Added" needs no extra extension (built on the core
+`list=recentchanges` API).
 
-**Deliverable:** A portable skin folder with no custom database dependencies beyond
-what Citizen and (optionally) PageViewInfo already require.
+**Deliverable:** A small set of on-wiki pages (`MediaWiki:Citizen.css`,
+`MediaWiki:Citizen.js`, wikitext templates) plus a short `LocalSettings.php` snippet —
+portable to any MediaWiki install running the stock Citizen skin, with no custom skin
+package to maintain. Version-controlled as plain files in this repo and applied to the
+wiki via copy-paste or a small import script (Task 1 of the implementation plan covers
+which).
 
 ## Visual Design System — "Heritage Archival"
 
 ### Color palette
 
-| Role | Description | Hex (approx) |
-|---|---|---|
-| Background (page) | Aged parchment cream | `#F4EDE1` |
-| Surface (cards/panels) | Warm ivory | `#FBF7EF` |
-| Primary text | Deep espresso brown | `#2A1D14` |
-| Primary brand / links | Deep brown | `#5C3A21` |
-| Accent (CTAs, highlights, badges) | Antique gold/brass | `#B8863B` |
-| Secondary accent (dividers, hover) | Muted terracotta | `#A8482F` |
-| Borders / hairlines | Soft brown-grey | `#D9CBB4` |
-| Success / verified marker | Deep forest green | `#3B5C40` |
+| Role | Description | Hex (approx) | Citizen CSS variable |
+|---|---|---|---|
+| Background (page) | Aged parchment cream | `#F4EDE1` | `--color-surface-0` |
+| Surface (cards/panels) | Warm ivory | `#FBF7EF` | `--color-surface-1` |
+| Raised elements | Slightly deeper ivory | `#F3ECDD` | `--color-surface-2` |
+| Primary text | Deep espresso brown | `#2A1D14` | `--color-base`, `--color-emphasized` |
+| Primary brand / links | Deep brown | `#5C3A21` | `--color-link` (via `--color-progressive-oklch__h/c/l`) |
+| Accent (CTAs, highlights, badges) | Antique gold/brass | `#B8863B` | custom property, not a direct Citizen token — introduced as `--bhf-color-accent-gold` and referenced from our own component CSS |
+| Secondary accent (dividers, hover) | Muted terracotta | `#A8482F` | custom property `--bhf-color-accent-terracotta` |
+| Borders / hairlines | Soft brown-grey | `#D9CBB4` | `--border-color-base` |
+| Success / verified marker | Deep forest green | `#3B5C40` | `--color-success` |
+
+Citizen's primary/link color is driven by OKLCH (`--color-progressive-oklch__h/c/l`),
+not a raw hex — the deep brown above will be converted to its OKLCH equivalent during
+implementation. The gold and terracotta accents aren't part of Citizen's token set, so
+they're introduced as new custom properties on `:root` in `MediaWiki:Citizen.css` and
+consumed directly by our own component CSS (badges, pull-quotes, category tiles).
 
 All accent-on-parchment pairings must be checked for WCAG AA contrast during
 implementation (not just primary body text).
@@ -86,11 +114,14 @@ implementation (not just primary body text).
 ### Typography
 
 - **Headings:** A serif with gravitas (e.g. Source Serif 4 or Lora) — article titles,
-  section headers, homepage masthead.
+  section headers, homepage masthead. Set via Citizen's `--font-family-citizen-serif`.
 - **Body:** A clean, highly-readable humanist sans (e.g. Source Sans 3 or Inter) —
-  article prose, nav, UI chrome.
+  article prose, nav, UI chrome. Set via `--font-family-citizen-base`.
 - **Accent/label text:** Small caps or a slightly condensed sans — category tags,
-  "verified source" badges, timeline era labels — visually distinct from prose.
+  "verified source" badges, timeline era labels — visually distinct from prose,
+  implemented as a utility class in our own CSS rather than a Citizen variable.
+- A metric-matched fallback font must be generated for the chosen body font to avoid
+  layout shift on load (Citizen's documented "font flicker" guidance).
 
 ### Texture
 
@@ -145,21 +176,27 @@ Top to bottom:
 - **Sticky sub-header:** A slim sticky bar (title + jump-to-section + Contribute link)
   appears on scroll on article pages, on both mobile and desktop — reusing Citizen's
   existing scroll behavior, restyled.
-- **Theme:** Light "parchment" theme only — no dark mode in this phase.
+- **Theme:** Light "parchment" theme only — no dark mode in this phase. Since Citizen
+  ships Light/Dark/Pure-Black/Automatic by default, this requires explicitly overriding
+  `MediaWiki:Citizen-preferences.json` to remove the theme picker and forcing the light
+  theme via `$wgCitizenThemeDefault` in `LocalSettings.php`, rather than merely omitting
+  dark-mode styles.
 
 ## Testing / Validation Plan
 
 - Visual QA against the palette/type system on: homepage, a Person article, a Place
   article, an Event article, mobile widths, and desktop widths.
 - WCAG AA contrast check on all accent-on-parchment color pairings.
-- Confirm the skin activates cleanly via `LocalSettings.php` on a clean MediaWiki
-  install, with and without PageViewInfo installed (Trending module should degrade
-  gracefully — e.g. hide the Trending column — if the extension is absent).
+- Confirm `MediaWiki:Citizen.css`/`MediaWiki:Citizen.js` apply cleanly on a clean
+  MediaWiki + stock Citizen install, with and without PageViewInfo installed (Trending
+  module should degrade gracefully — e.g. hide the Trending column — if the extension
+  is absent).
+- Confirm performance-mode users (Citizen's "reduce motion/effects" preference) get a
+  lighter version of the paper-grain texture and any transitions we add, per Citizen's
+  performance-mode guidance.
 
 ## Open Items for Future Phases (explicitly out of scope here)
 
 - Contributor profiles, source-citation tooling, submission/review workflows (deferred
   per the "skin/theme only" scope decision).
 - Dark mode (deferred per platform-preferences decision).
-- Exact skin name/branding (placeholder used during build: `BlackHistory`/`Sankofa` —
-  to be finalized with the user before release).
