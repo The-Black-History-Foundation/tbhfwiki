@@ -109,7 +109,12 @@ they're introduced as new custom properties on `:root` in `MediaWiki:Citizen.css
 consumed directly by our own component CSS (badges, pull-quotes, category tiles).
 
 All accent-on-parchment pairings must be checked for WCAG AA contrast during
-implementation (not just primary body text).
+implementation (not just primary body text). Contrast ratios were computed during
+planning: gold-on-parchment text is only 2.77:1 (fails AA) — gold must be used as a
+**filled background** (badge/chip/button, with espresso text on top, 5.07:1 — passes)
+or for large headings/icons/borders, never as small text color directly on parchment
+or ivory. Deep brown, terracotta, and forest green all pass AA as text color on
+parchment (8.67:1, 4.97:1, 6.47:1 respectively).
 
 ### Typography
 
