@@ -25,3 +25,17 @@ test('defines custom accent properties not covered by Citizen tokens', () => {
   assert.match(css, /--bhf-color-accent-terracotta:\s*#A8482F/i);
   assert.match(css, /--bhf-color-success:\s*#3B5C40/i);
 });
+
+test('overrides Citizen font-family variables with the archival type system', () => {
+  assert.match(css, /--font-family-citizen-serif:\s*'Source Serif 4'/);
+  assert.match(css, /--font-family-citizen-base:\s*'Source Sans 3'/);
+});
+
+test('imports the chosen Google Fonts with a full weight range', () => {
+  assert.match(css, /fonts\.googleapis\.com\/css2\?family=Source\+Serif\+4/);
+  assert.match(css, /fonts\.googleapis\.com\/css2\?family=Source\+Sans\+3/);
+});
+
+test('ships a metric-matched fallback face to avoid font-flicker layout shift', () => {
+  assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Sans-fallback'/);
+});

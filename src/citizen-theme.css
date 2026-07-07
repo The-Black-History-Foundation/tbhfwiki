@@ -3,6 +3,21 @@
  * "Heritage Archival" palette — see docs/superpowers/specs/2026-07-06-black-history-wiki-skin-design.md
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap');
+
+/* Metric-matched fallback for Source Sans 3, generated via
+ * https://screenspan.net/fallback to prevent layout shift while the web
+ * font loads. Ascent/descent/line-gap overrides approximate Arial's metrics
+ * scaled to Source Sans 3 — regenerate if the body font ever changes. */
+@font-face {
+	font-family: 'Source-Sans-fallback';
+	src: local( 'Arial' );
+	ascent-override: 90%;
+	descent-override: 22%;
+	line-gap-override: 0%;
+}
+
 :root {
 	/* Brand hue/chroma/lightness — drives Citizen's link/accent color AND
 	 * (via shared hue) tints the surface ramp toward warm parchment tones.
@@ -25,4 +40,8 @@
 	--bhf-color-text-on-gold: #2A1D14;
 	--bhf-color-accent-terracotta: #A8482F;
 	--bhf-color-success: #3B5C40;
+
+	/* Archival typography system — overrides Citizen's default font-family. */
+	--font-family-citizen-serif: 'Source Serif 4';
+	--font-family-citizen-base: 'Source Sans 3', 'Source-Sans-fallback';
 }
