@@ -51,3 +51,15 @@ test('gates the paper-grain texture behind performance-mode-off', () => {
 test('paper-grain texture is a low-opacity SVG noise background', () => {
   assert.match(css, /\.bhf-texture-parchment\s*{[^}]*background-image:\s*url\(/s);
 });
+
+test('defines homepage layout classes', () => {
+  for (const cls of ['.bhf-masthead', '.bhf-hero', '.bhf-category-strip', '.bhf-category-tile']) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('category tiles use the gold-filled-chip contrast pattern, not gold text', () => {
+  const tileBlock = css.match(/\.bhf-category-tile\s*{[^}]*}/s)[0];
+  assert.match(tileBlock, /background-color:\s*var\(\s*--bhf-color-accent-gold\s*\)/);
+  assert.match(tileBlock, /color:\s*var\(\s*--bhf-color-text-on-gold\s*\)/);
+});
