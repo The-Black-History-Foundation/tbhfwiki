@@ -420,7 +420,7 @@ Expected: PASS (all tests so far)
 - [ ] **Step 5: Write the Main Page wikitext template**
 
 ```wikitext
-{{! src/templates/MainPage.wikitext — paste as the wiki's Main Page content }}
+<!-- src/templates/MainPage.wikitext — paste as the wiki's Main Page content -->
 <div class="bhf-masthead bhf-texture-parchment">
 '''The Black History Foundation Wiki'''
 
@@ -437,7 +437,7 @@ Expected: PASS (all tests so far)
 </div>
 
 <div id="bhf-discovery-rail"></div>
-{{! populated client-side by discovery-rail.bootstrap.js, see Task 5-7 }}
+<!-- populated client-side by discovery-rail.bootstrap.js, see Task 5-7 -->
 
 <div class="bhf-category-strip">
 [[:Category:People|<div class="bhf-category-tile">People</div>]]
@@ -990,8 +990,8 @@ Expected: PASS (all tests so far)
 - [ ] **Step 5: Write the wikitext templates**
 
 ```wikitext
-{{! src/templates/Infobox.wikitext — paste as Template:Infobox
-    Usage: {{Infobox|type=person|title=Robert Renfro|...}} }}
+<!-- src/templates/Infobox.wikitext — paste as Template:Infobox
+    Usage: {{Infobox|type=person|title=Robert Renfro|...}} -->
 <div class="bhf-infobox bhf-infobox--{{{type|person}}}">
 <div class="bhf-infobox__type-label"></div>
 <div class="bhf-infobox__title">{{{title}}}</div>
@@ -1001,8 +1001,8 @@ Expected: PASS (all tests so far)
 ```
 
 ```wikitext
-{{! src/templates/Quote.wikitext — paste as Template:Quote
-    Usage: {{Quote|text=...|attribution=...}} }}
+<!-- src/templates/Quote.wikitext — paste as Template:Quote
+    Usage: {{Quote|text=...|attribution=...}} -->
 <div class="bhf-pullquote">
 {{{text}}}
 {{#if:{{{attribution|}}}|<div class="bhf-pullquote__attribution">— {{{attribution}}}</div>}}
@@ -1010,14 +1010,14 @@ Expected: PASS (all tests so far)
 ```
 
 ```wikitext
-{{! src/templates/ArticleBreadcrumb.wikitext — paste as Template:ArticleBreadcrumb
-    Usage directly under the article title: {{ArticleBreadcrumb|type=Person|era=18th Century|place=Nashville}} }}
+<!-- src/templates/ArticleBreadcrumb.wikitext — paste as Template:ArticleBreadcrumb
+    Usage directly under the article title: {{ArticleBreadcrumb|type=Person|era=18th Century|place=Nashville}} -->
 <div class="bhf-breadcrumb">{{{type}}} &middot; {{{era}}} &middot; {{{place}}}{{#if:{{{verified|}}}|<span class="bhf-badge--verified">Sources verified</span>}}</div>
 ```
 
 ```wikitext
-{{! src/templates/RelatedPages.wikitext — paste as Template:RelatedPages
-    Usage: {{RelatedPages|era=Template:Era18th|links=[[Fort Nashborough]], [[James Robertson]]}} }}
+<!-- src/templates/RelatedPages.wikitext — paste as Template:RelatedPages
+    Usage: {{RelatedPages|era=Template:Era18th|links=[[Fort Nashborough]], [[James Robertson]]}} -->
 <div class="bhf-related-pages">
 <span class="bhf-related-pages__title">Related pages</span>
 {{{links}}}
@@ -1114,10 +1114,10 @@ Expected: PASS (all tests so far)
 - [ ] **Step 5: Write the wikitext**
 
 ```wikitext
-{{! src/templates/ContributeFooter.wikitext — paste as Template:ContributeFooter,
+<!-- src/templates/ContributeFooter.wikitext — paste as Template:ContributeFooter,
     then transclude with {{ContributeFooter}} at the bottom of article templates
     or via a per-namespace default (see MediaWiki:Newarticletext for an alternative
-    hook point). }}
+    hook point). -->
 <div class="bhf-contribute-prompt">
 Know more about this? [{{fullurl:{{FULLPAGENAME}}|action=edit}} Add to this page] or visit the [[Talk:{{FULLPAGENAME}}|discussion page]].
 </div>
