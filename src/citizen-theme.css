@@ -1,0 +1,28 @@
+/* src/citizen-theme.css
+ * Paste this entire file's contents into MediaWiki:Citizen.css on the wiki.
+ * "Heritage Archival" palette — see docs/superpowers/specs/2026-07-06-black-history-wiki-skin-design.md
+ */
+
+:root {
+	/* Brand hue/chroma/lightness — drives Citizen's link/accent color AND
+	 * (via shared hue) tints the surface ramp toward warm parchment tones.
+	 * Computed from #5C3A21 (deep espresso brown). */
+	--color-progressive-oklch__h: 56.01;
+	--color-progressive-oklch__c: 0.0614;
+	--color-progressive-oklch__l: 38.28%;
+
+	/* Nudge the surface ramp lighter/warmer than Citizen's default so
+	 * surface-0 lands close to #F4EDE1 (parchment) instead of neutral grey. */
+	--color-surface-0-oklch__l: 94.8%;
+	--color-surface-0-oklch__c: 0.018;
+
+	/* Accent colors with no equivalent Citizen token — consumed directly by
+	 * our own component CSS (badges, pull-quotes, category tiles). Gold is
+	 * only ever used as a filled background with --bhf-color-text-on-gold on
+	 * top (2.77:1 as text-on-parchment fails AA; 5.07:1 as a filled chip
+	 * with espresso text passes). */
+	--bhf-color-accent-gold: #B8863B;
+	--bhf-color-text-on-gold: #2A1D14;
+	--bhf-color-accent-terracotta: #A8482F;
+	--bhf-color-success: #3B5C40;
+}
