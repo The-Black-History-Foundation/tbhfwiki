@@ -40,3 +40,14 @@ test('ships a metric-matched fallback face to avoid font-flicker layout shift', 
   assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Sans-fallback'/);
   assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Serif-fallback'/);
 });
+
+test('gates the paper-grain texture behind performance-mode-off', () => {
+  assert.match(
+    css,
+    /\.citizen-feature-performance-mode-clientpref-0\s+\.bhf-texture-parchment/
+  );
+});
+
+test('paper-grain texture is a low-opacity SVG noise background', () => {
+  assert.match(css, /\.bhf-texture-parchment\s*{[^}]*background-image:\s*url\(/s);
+});
