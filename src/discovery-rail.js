@@ -33,7 +33,9 @@ function renderCard(item) {
 	return (
 		'<a class="bhf-rail-card" href="' + escapeHtml( item.url ) + '">' +
 		'<span class="bhf-rail-card__title">' + escapeHtml( item.title ) + '</span>' +
-		'<span class="bhf-rail-card__meta">' + escapeHtml( item.user ) + '</span>' +
+		'<span class="bhf-rail-card__meta">' + escapeHtml( item.user ) +
+			( item.timestamp ? ' &middot; ' + escapeHtml( item.timestamp ) : '' ) +
+		'</span>' +
 		'</a>'
 	);
 }

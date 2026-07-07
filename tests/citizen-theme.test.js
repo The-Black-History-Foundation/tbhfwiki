@@ -99,3 +99,47 @@ test('contribute prompt uses the terracotta accent, not gold, for its border', (
   const block = css.match(/\.bhf-contribute-prompt\s*{[^}]*}/s)[0];
   assert.match(block, /border:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
 });
+
+test('defines discovery rail layout and card classes', () => {
+  for (const cls of [
+    '.bhf-rail',
+    '.bhf-rail__column',
+    '.bhf-rail__cards',
+    '.bhf-rail-card',
+    '.bhf-rail-card__title',
+    '.bhf-rail-card__meta',
+  ]) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('discovery rail stacks into a single column on narrow viewports', () => {
+  const mediaBlock = css.match(
+    /@media \( max-width: 640px \)\s*{\s*\.bhf-rail\s*{[^}]*}/s
+  );
+  assert.ok(mediaBlock, 'expected a max-width: 640px media query targeting .bhf-rail');
+  assert.match(mediaBlock[0], /flex-direction:\s*column/);
+});
+
+test('article headings render in the archival serif type system', () => {
+  const block = css.match(/#firstHeading,\s*\.mw-heading\s*{[^}]*}/s);
+  assert.ok(block, 'expected #firstHeading and .mw-heading to share a rule block');
+  assert.match(
+    block[0],
+    /font-family:\s*var\(\s*--font-family-citizen-serif\s*\)/
+  );
+});
+
+test('sets direct hex overrides for surface/base/border tokens to survive a future Citizen token-pipeline upgrade', () => {
+  const rootBlock = css.match(/:root\s*{[^}]*}/s)[0];
+  assert.match(rootBlock, /--color-surface-0:\s*#F4EDE1/i);
+  assert.match(rootBlock, /--color-surface-1:\s*#FBF7EF/i);
+  assert.match(rootBlock, /--color-surface-2:\s*#F3ECDD/i);
+  assert.match(rootBlock, /--color-base:\s*#2A1D14/i);
+  assert.match(rootBlock, /--color-emphasized:\s*#2A1D14/i);
+  assert.match(rootBlock, /--border-color-base:\s*#D9CBB4/i);
+});
+
+test('defines the pull-quote attribution styling', () => {
+  assert.ok(css.includes('.bhf-pullquote__attribution'));
+});

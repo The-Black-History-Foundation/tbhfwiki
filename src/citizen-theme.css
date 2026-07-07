@@ -56,6 +56,18 @@
 	/* Archival typography system — overrides Citizen's default font-family. */
 	--font-family-citizen-serif: 'Source Serif 4', 'Source-Serif-fallback';
 	--font-family-citizen-base: 'Source Sans 3', 'Source-Sans-fallback';
+
+	/* Direct overrides for Citizen's newer token pipeline, which does not
+	 * derive these from the oklch sub-tokens above. Kept alongside the
+	 * oklch tokens (not instead of) so the parchment palette survives a
+	 * future Citizen upgrade to the new pipeline — a later declaration
+	 * always wins regardless of which pipeline is active. */
+	--color-surface-0: #F4EDE1;
+	--color-surface-1: #FBF7EF;
+	--color-surface-2: #F3ECDD;
+	--color-base: #2A1D14;
+	--color-emphasized: #2A1D14;
+	--border-color-base: #D9CBB4;
 }
 
 /* Subtle paper-grain texture — inline SVG fractal noise, no external asset.
@@ -125,6 +137,66 @@
 	filter: brightness( 1.08 );
 }
 
+#firstHeading,
+.mw-heading {
+	font-family: var( --font-family-citizen-serif );
+}
+
+.bhf-rail {
+	display: flex;
+	gap: 1.5rem;
+	margin-block: 1.5rem;
+}
+
+.bhf-rail__column {
+	flex: 1 1 0;
+	background-color: var( --color-surface-1 );
+	border: 1px solid var( --border-color-base );
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+.bhf-rail__column h2 {
+	font-family: var( --font-family-citizen-serif );
+	font-size: 1.1rem;
+	margin-top: 0;
+}
+
+.bhf-rail__cards {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.bhf-rail-card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	padding: 0.5rem;
+	border-radius: 6px;
+	background-color: var( --color-surface-0 );
+}
+
+.bhf-rail-card:hover {
+	background-color: var( --color-surface-2 );
+}
+
+.bhf-rail-card__title {
+	font-weight: 600;
+	color: var( --color-emphasized );
+}
+
+.bhf-rail-card__meta {
+	font-size: 0.8rem;
+	color: var( --color-subtle );
+}
+
+@media ( max-width: 640px ) {
+	.bhf-rail {
+		flex-direction: column;
+	}
+}
+
 @media ( max-width: 640px ) {
 	.bhf-hero {
 		flex-direction: column;
@@ -190,6 +262,13 @@
 	padding: 0.5rem 0 0.5rem 1rem;
 	margin: 1.5rem 0;
 	color: var( --color-emphasized );
+}
+
+.bhf-pullquote__attribution {
+	font-style: normal;
+	font-weight: 600;
+	color: var( --color-subtle );
+	margin-top: 0.25rem;
 }
 
 .bhf-badge--verified {

@@ -2,7 +2,7 @@
 <div class="bhf-masthead bhf-texture-parchment">
 '''The Black History Foundation Wiki'''
 
-''Discover. Preserve. Share.''
+<span class="bhf-masthead__tagline">''Discover. Preserve. Share.''</span>
 </div>
 
 <div class="bhf-hero">
@@ -26,7 +26,7 @@
 
 <div class="bhf-footer-band">
 <div class="bhf-footer-band__cta">
-'''Have a story to share?''' [[Special:Contribute|Add your family's history]] to the archive.
+'''Have a story to share?''' [[Special:CreateAccount|Add your family's history]] to the archive.
 </div>
 <div class="bhf-footer-band__links">
 '''About Us'''
@@ -35,6 +35,6 @@
 
 '''Get Involved'''
 
-[https://www.tbhfdn.org/donate Donate] &middot; [[Special:Contribute|Contribute]]
+[https://www.tbhfdn.org/donate Donate] &middot; [[Help:Contributing|Contribute]]
 </div>
 </div>

@@ -48,6 +48,28 @@ test('renderCard produces a card with title, contributor, and relative-safe time
   assert.match(html, /TKennedy/);
 });
 
+test('renderCard includes the timestamp when present', () => {
+  const html = renderCard({
+    title: 'Robert Renfro',
+    timestamp: '2026-07-01T12:00:00Z',
+    user: 'TKennedy',
+    url: '/wiki/Robert_Renfro',
+  });
+
+  assert.match(html, /TKennedy &middot; 2026-07-01T12:00:00Z/);
+});
+
+test('renderCard omits the timestamp separator when timestamp is absent (Trending use case)', () => {
+  const html = renderCard({
+    title: 'Robert Renfro',
+    user: '482 views',
+    url: '/wiki/Robert_Renfro',
+  });
+
+  assert.match(html, /class="bhf-rail-card__meta">482 views<\/span>/);
+  assert.ok(!html.includes('&middot;'));
+});
+
 test('renderCard escapes HTML in titles and usernames to prevent injection', () => {
   const html = renderCard({
     title: '<script>alert(1)</script>',
