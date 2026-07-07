@@ -1,0 +1,26 @@
+# docker-compose.yml — local MediaWiki + Citizen for manual verification only.
+# Not part of the deployable theme; delete or ignore in production.
+services:
+  mediawiki:
+    image: mediawiki:1.43
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - mediawiki-data:/var/www/html/images
+      - ./vendor-citizen-reference:/var/www/html/skins/Citizen:ro
+    depends_on:
+      - db
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: mediawiki
+      MARIADB_USER: mediawiki
+      MARIADB_PASSWORD: mediawiki
+      MARIADB_ROOT_PASSWORD: rootpass
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  mediawiki-data:
+  db-data:
