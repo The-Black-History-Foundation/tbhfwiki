@@ -14,8 +14,17 @@
       columns
 - [ ] A test article shows the dashed terracotta-bordered "Know more about this?"
       contribute prompt
-- [ ] A test article shows the breadcrumb category tags under its title, and (when
-      `verified=1` is passed) the gold "Sources verified" badge inline with them
+- [ ] A test article shows the breadcrumb category tags under its title
+- [ ] A test article with a `== Sources ==` section containing at least one
+      `{{Citation}}` shows the gold "Sources cited" badge automatically (no manual
+      parameter needed)
+- [ ] A test article with NO `{{Citation}}` entries shows no gold badge
+- [ ] Adding `[[Category:Reviewed]]` to a test article shows the green "Reviewer
+      confirmed" badge alongside (or independently of) the gold badge
+- [ ] A citation with `confidence=disputed` still counts toward the gold badge, and
+      displays its terracotta "Disputed" tag within the Sources section
+- [ ] Each of the six citation types (`archival`, `newspaper`, `book`,
+      `oral-history`, `record`, `photo`) renders its distinct type label
 - [ ] A test article shows the "Related pages"/"Part of timeline" block below the
       infobox
 - [ ] The theme preferences panel has NO theme picker (forced light theme)
