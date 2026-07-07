@@ -18,6 +18,18 @@
 	line-gap-override: 0%;
 }
 
+/* Metric-matched fallback for Source Serif 4, generated via
+ * https://screenspan.net/fallback to prevent layout shift while the web
+ * font loads. Ascent/descent/line-gap overrides approximate Georgia's metrics
+ * scaled to Source Serif 4 — regenerate if the heading font ever changes. */
+@font-face {
+	font-family: 'Source-Serif-fallback';
+	src: local( 'Georgia' );
+	ascent-override: 88%;
+	descent-override: 24%;
+	line-gap-override: 0%;
+}
+
 :root {
 	/* Brand hue/chroma/lightness — drives Citizen's link/accent color AND
 	 * (via shared hue) tints the surface ramp toward warm parchment tones.
@@ -42,6 +54,6 @@
 	--bhf-color-success: #3B5C40;
 
 	/* Archival typography system — overrides Citizen's default font-family. */
-	--font-family-citizen-serif: 'Source Serif 4';
+	--font-family-citizen-serif: 'Source Serif 4', 'Source-Serif-fallback';
 	--font-family-citizen-base: 'Source Sans 3', 'Source-Sans-fallback';
 }

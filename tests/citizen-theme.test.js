@@ -27,8 +27,8 @@ test('defines custom accent properties not covered by Citizen tokens', () => {
 });
 
 test('overrides Citizen font-family variables with the archival type system', () => {
-  assert.match(css, /--font-family-citizen-serif:\s*'Source Serif 4'/);
-  assert.match(css, /--font-family-citizen-base:\s*'Source Sans 3'/);
+  assert.match(css, /--font-family-citizen-serif:\s*'Source Serif 4',\s*'Source-Serif-fallback'/);
+  assert.match(css, /--font-family-citizen-base:\s*'Source Sans 3',\s*'Source-Sans-fallback'/);
 });
 
 test('imports the chosen Google Fonts with a full weight range', () => {
@@ -38,4 +38,5 @@ test('imports the chosen Google Fonts with a full weight range', () => {
 
 test('ships a metric-matched fallback face to avoid font-flicker layout shift', () => {
   assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Sans-fallback'/);
+  assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Serif-fallback'/);
 });
