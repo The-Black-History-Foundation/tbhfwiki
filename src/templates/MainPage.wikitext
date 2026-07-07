@@ -23,3 +23,18 @@
 [[:Category:Events|<div class="bhf-category-tile">Events</div>]]
 [[:Category:Eras|<div class="bhf-category-tile">Eras</div>]]
 </div>
+
+<div class="bhf-footer-band">
+<div class="bhf-footer-band__cta">
+'''Have a story to share?''' [[Special:Contribute|Add your family's history]] to the archive.
+</div>
+<div class="bhf-footer-band__links">
+'''About Us'''
+
+[[About]] &middot; [[Contact]]
+
+'''Get Involved'''
+
+[https://www.tbhfdn.org/donate Donate] &middot; [[Special:Contribute|Contribute]]
+</div>
+</div>

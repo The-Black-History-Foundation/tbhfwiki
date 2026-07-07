@@ -88,3 +88,14 @@ test('defines the breadcrumb category tags and related-pages sidebar block', () 
     assert.ok(css.includes(cls), `expected ${cls} to be defined`);
   }
 });
+
+test('defines the homepage community footer band and article contribute prompt', () => {
+  for (const cls of ['.bhf-footer-band', '.bhf-contribute-prompt']) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('contribute prompt uses the terracotta accent, not gold, for its border', () => {
+  const block = css.match(/\.bhf-contribute-prompt\s*{[^}]*}/s)[0];
+  assert.match(block, /border:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+});

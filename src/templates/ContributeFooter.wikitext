@@ -1,0 +1,7 @@
+<!-- src/templates/ContributeFooter.wikitext — paste as Template:ContributeFooter,
+    then transclude with {{ContributeFooter}} at the bottom of article templates
+    or via a per-namespace default (see MediaWiki:Newarticletext for an alternative
+    hook point). -->
+<div class="bhf-contribute-prompt">
+Know more about this? [{{fullurl:{{FULLPAGENAME}}|action=edit}} Add to this page] or visit the [[Talk:{{FULLPAGENAME}}|discussion page]].
+</div>
