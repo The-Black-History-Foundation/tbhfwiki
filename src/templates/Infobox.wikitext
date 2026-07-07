@@ -1,0 +1,8 @@
+<!-- src/templates/Infobox.wikitext — paste as Template:Infobox
+    Usage: {{Infobox|type=person|title=Robert Renfro|...}} -->
+<div class="bhf-infobox bhf-infobox--{{{type|person}}}">
+<div class="bhf-infobox__type-label"></div>
+<div class="bhf-infobox__title">{{{title}}}</div>
+[[File:{{{image|Placeholder-portrait.jpg}}}|center|200px]]
+{{{body}}}
+</div>

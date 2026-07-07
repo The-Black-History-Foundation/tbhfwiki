@@ -63,3 +63,28 @@ test('category tiles use the gold-filled-chip contrast pattern, not gold text', 
   assert.match(tileBlock, /background-color:\s*var\(\s*--bhf-color-accent-gold\s*\)/);
   assert.match(tileBlock, /color:\s*var\(\s*--bhf-color-text-on-gold\s*\)/);
 });
+
+test('defines the shared infobox shell and per-type variants', () => {
+  for (const cls of ['.bhf-infobox', '.bhf-infobox--person', '.bhf-infobox--place', '.bhf-infobox--event']) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('pull-quote uses gold left-border with italic serif text', () => {
+  const block = css.match(/\.bhf-pullquote\s*{[^}]*}/s)[0];
+  assert.match(block, /border-left:.*var\(\s*--bhf-color-accent-gold\s*\)/);
+  assert.match(block, /font-style:\s*italic/);
+  assert.match(block, /font-family:\s*var\(\s*--font-family-citizen-serif\s*\)/);
+});
+
+test('verified badge uses gold-fill contrast pattern, and success badge uses the green token', () => {
+  const badgeBlock = css.match(/\.bhf-badge--verified\s*{[^}]*}/s)[0];
+  assert.match(badgeBlock, /background-color:\s*var\(\s*--bhf-color-accent-gold\s*\)/);
+  assert.match(badgeBlock, /color:\s*var\(\s*--bhf-color-text-on-gold\s*\)/);
+});
+
+test('defines the breadcrumb category tags and related-pages sidebar block', () => {
+  for (const cls of ['.bhf-breadcrumb', '.bhf-related-pages']) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});

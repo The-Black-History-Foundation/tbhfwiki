@@ -1,0 +1,6 @@
+<!-- src/templates/Quote.wikitext — paste as Template:Quote
+    Usage: {{Quote|text=...|attribution=...}} -->
+<div class="bhf-pullquote">
+{{{text}}}
+{{#if:{{{attribution|}}}|<div class="bhf-pullquote__attribution">— {{{attribution}}}</div>}}
+</div>

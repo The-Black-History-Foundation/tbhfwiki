@@ -1,0 +1,3 @@
+<!-- src/templates/ArticleBreadcrumb.wikitext — paste as Template:ArticleBreadcrumb
+    Usage directly under the article title: {{ArticleBreadcrumb|type=Person|era=18th Century|place=Nashville}} -->
+<div class="bhf-breadcrumb">{{{type}}} &middot; {{{era}}} &middot; {{{place}}}{{#if:{{{verified|}}}|<span class="bhf-badge--verified">Sources verified</span>}}</div>

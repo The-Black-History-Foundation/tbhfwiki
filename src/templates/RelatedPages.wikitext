@@ -1,0 +1,8 @@
+<!-- src/templates/RelatedPages.wikitext — paste as Template:RelatedPages
+    Usage: {{RelatedPages|era=Template:Era18th|links=[[Fort Nashborough]], [[James Robertson]]}} -->
+<div class="bhf-related-pages">
+<span class="bhf-related-pages__title">Related pages</span>
+{{{links}}}
+
+Part of timeline: [[{{{era}}}|{{PAGENAME:{{{era}}}}}]]
+</div>
