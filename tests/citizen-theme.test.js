@@ -175,3 +175,19 @@ test('defines the green reviewer-confirmed badge using established tokens', () =
   assert.match(block, /background-color:\s*var\(\s*--bhf-color-success\s*\)/);
   assert.match(block, /color:\s*var\(\s*--color-surface-0\s*\)/);
 });
+
+test('defines the contributor profile card shell and its sub-components', () => {
+  for (const cls of [
+    '.bhf-profile', '.bhf-profile__bio', '.bhf-profile__tags',
+    '.bhf-profile__tag', '.bhf-profile-stats', '.bhf-profile__featured',
+    '.bhf-profile__featured-label'
+  ]) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('profile tags use established border/text tokens, not new colors', () => {
+  const block = css.match(/\.bhf-profile__tag\s*{[^}]*}/s)[0];
+  assert.match(block, /color:\s*var\(\s*--color-subtle\s*\)/);
+  assert.match(block, /border:.*var\(\s*--border-color-base\s*\)/);
+});

@@ -1,0 +1,12 @@
+<!-- src/templates/ContributorProfile.wikitext — paste as Template:ContributorProfile
+    Usage on your own User: page:
+    {{ContributorProfile|bio=...|interest1=Nashville|interest2=Oral History|featured=Robert Renfro}}
+    Required: bio
+    Optional: interest1 through interest5 (individual tags, not pipe-separated),
+    featured (a wikilink target) -->
+<div class="bhf-profile">
+<div class="bhf-profile__bio">{{{bio}}}</div>
+<div class="bhf-profile__tags">{{#if:{{{interest1|}}}|<span class="bhf-profile__tag">{{{interest1}}}</span>}}{{#if:{{{interest2|}}}|<span class="bhf-profile__tag">{{{interest2}}}</span>}}{{#if:{{{interest3|}}}|<span class="bhf-profile__tag">{{{interest3}}}</span>}}{{#if:{{{interest4|}}}|<span class="bhf-profile__tag">{{{interest4}}}</span>}}{{#if:{{{interest5|}}}|<span class="bhf-profile__tag">{{{interest5}}}</span>}}</div>
+<div id="bhf-contributor-stats" class="bhf-profile-stats"></div>
+{{#if:{{{featured|}}}|<div class="bhf-profile__featured"><span class="bhf-profile__featured-label">Featured article</span>[[{{{featured}}}]]</div>}}
+</div>
