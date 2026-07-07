@@ -1,3 +1,6 @@
 <!-- src/templates/ArticleBreadcrumb.wikitext — paste as Template:ArticleBreadcrumb
-    Usage directly under the article title: {{ArticleBreadcrumb|type=Person|era=18th Century|place=Nashville}} -->
-<div class="bhf-breadcrumb">{{{type}}} &middot; {{{era}}} &middot; {{{place}}}{{#if:{{{verified|}}}|<span class="bhf-badge--verified">Sources verified</span>}}</div>
+    Usage directly under the article title: {{ArticleBreadcrumb|type=Person|era=18th Century|place=Nashville}}
+    Badges are computed automatically by citation-badges.bootstrap.js from page
+    content (citation count + Category:Reviewed) — the old `verified` parameter is no
+    longer read here and is silently ignored if an existing page still passes it. -->
+<div class="bhf-breadcrumb">{{{type}}} &middot; {{{era}}} &middot; {{{place}}}<span id="bhf-citation-badges"></span></div>
