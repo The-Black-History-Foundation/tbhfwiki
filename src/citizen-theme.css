@@ -335,3 +335,79 @@
 	margin-top: 2rem;
 	font-style: italic;
 }
+
+.bhf-citation {
+	background-color: var( --color-surface-1 );
+	border: 1px solid var( --border-color-base );
+	border-radius: 6px;
+	padding: 0.75rem 1rem;
+	margin-bottom: 0.5rem;
+}
+
+.bhf-citation__type {
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	letter-spacing: 0.03em;
+	color: var( --color-subtle );
+	margin-right: 0.5rem;
+}
+
+.bhf-citation--archival .bhf-citation__type::before {
+	content: "Archival Document";
+}
+
+.bhf-citation--newspaper .bhf-citation__type::before {
+	content: "Newspaper";
+}
+
+.bhf-citation--book .bhf-citation__type::before {
+	content: "Book";
+}
+
+.bhf-citation--oral-history .bhf-citation__type::before {
+	content: "Oral History";
+}
+
+.bhf-citation--record .bhf-citation__type::before {
+	content: "Government Record";
+}
+
+.bhf-citation--photo .bhf-citation__type::before {
+	content: "Photograph/Artifact";
+}
+
+.bhf-citation__title {
+	font-weight: 600;
+}
+
+.bhf-citation__meta {
+	display: block;
+	font-size: 0.85rem;
+	color: var( --color-subtle );
+	margin-top: 0.15rem;
+}
+
+.bhf-citation__confidence {
+	display: inline-block;
+	font-size: 0.7rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	padding: 0.1rem 0.5rem;
+	border-radius: 999px;
+	border: 1px solid currentColor;
+	margin-top: 0.3rem;
+}
+
+.bhf-citation__confidence--verified {
+	color: var( --bhf-color-success );
+}
+
+.bhf-citation__confidence--single-source {
+	color: var( --color-subtle );
+}
+
+.bhf-citation__confidence--disputed {
+	color: var( --bhf-color-accent-terracotta );
+}
