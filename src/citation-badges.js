@@ -15,9 +15,23 @@ function hasReviewedCategory(categoryLinkTitles) {
 	} );
 }
 
+function buildBadgeHtml( state ) {
+	var html = '';
+
+	if ( state.hasSources ) {
+		html += '<span class="bhf-badge--verified">Sources cited</span>';
+	}
+
+	if ( state.isReviewed ) {
+		html += '<span class="bhf-badge--reviewed">Reviewer confirmed</span>';
+	}
+
+	return html;
+}
+
 // Guarded so this file can be pasted as-is into MediaWiki:Citizen.js (a plain
 // browser script where `module` does not exist) without throwing a
 // ReferenceError, while still being require()-able from Node tests.
 if ( typeof module !== 'undefined' ) {
-	module.exports = { countCitations, hasReviewedCategory };
+	module.exports = { countCitations, hasReviewedCategory, buildBadgeHtml };
 }

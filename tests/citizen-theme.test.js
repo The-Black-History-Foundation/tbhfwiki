@@ -169,3 +169,9 @@ test('confidence tags use the established palette tokens, not new colors', () =>
   const disputedBlock = css.match(/\.bhf-citation__confidence--disputed\s*{[^}]*}/s)[0];
   assert.match(disputedBlock, /color:\s*var\(\s*--bhf-color-accent-terracotta\s*\)/);
 });
+
+test('defines the green reviewer-confirmed badge using established tokens', () => {
+  const block = css.match(/\.bhf-badge--reviewed\s*{[^}]*}/s)[0];
+  assert.match(block, /background-color:\s*var\(\s*--bhf-color-success\s*\)/);
+  assert.match(block, /color:\s*var\(\s*--color-surface-0\s*\)/);
+});
