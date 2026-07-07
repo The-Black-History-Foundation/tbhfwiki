@@ -47,15 +47,26 @@ can't go stale or be gamed.
 | Field | Required | Description |
 |---|---|---|
 | `bio` | Yes | Free-text biography |
-| `interests` | No | Pipe-separated research-interest tags, e.g. `Nashville\|Oral History\|18th century` |
+| `interest1` … `interest5` | No | Up to 5 individual research-interest tags, e.g. `interest1=Nashville`, `interest2=Oral History` |
 | `featured` | No | A wikilink to one article the contributor wants to highlight |
+
+Interest tags are five discrete numbered parameters, not one pipe-separated
+string. Splitting a delimited string into repeated markup in wikitext needs the
+Arrays extension (`{{#arraymap:}}`) — a real new extension dependency this
+project's "no new extension" constraint rules out (found while writing the
+implementation plan; ParserFunctions' `{{#if:}}`/`{{#switch:}}`, already relied
+on by the base theme and citation tooling, cannot split a string on its own).
+Five discrete slots achieve the same user-facing outcome — a handful of
+freeform tags — with only ParserFunctions.
 
 **Usage** (added to the contributor's own `User:` page):
 
 ```wikitext
 {{ContributorProfile
 |bio=I research free Black communities in 18th-century Nashville, focusing on land records and oral histories passed through my family.
-|interests=Nashville|Oral History|18th century
+|interest1=Nashville
+|interest2=Oral History
+|interest3=18th century
 |featured=Robert Renfro
 }}
 ```
