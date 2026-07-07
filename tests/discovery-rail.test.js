@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { transformRecentChanges, renderCard } = require('../src/discovery-rail.js');
+const { transformRecentChanges, renderCard, transformMostViewed, isPageViewInfoUnavailable } = require('../src/discovery-rail.js');
 
 test('transformRecentChanges maps the core API shape to card data', () => {
   const apiResponse = {
@@ -58,4 +58,36 @@ test('renderCard escapes HTML in titles and usernames to prevent injection', () 
 
   assert.ok(!html.includes('<script>'));
   assert.ok(!html.includes('<b>x</b>'));
+});
+
+test('transformMostViewed maps the PageViewInfo API shape to card data', () => {
+  const apiResponse = {
+    query: {
+      mostviewed: [
+        { title: 'Robert Renfro', count: 482 },
+        { title: 'Fort Nashborough', count: 210 },
+      ],
+    },
+  };
+
+  assert.deepEqual(transformMostViewed(apiResponse), [
+    { title: 'Robert Renfro', views: 482, url: '/wiki/Robert_Renfro' },
+    { title: 'Fort Nashborough', views: 210, url: '/wiki/Fort_Nashborough' },
+  ]);
+});
+
+test('transformMostViewed returns null when the mostviewed list is absent (extension not installed)', () => {
+  assert.equal(transformMostViewed({ query: {} }), null);
+});
+
+test('isPageViewInfoUnavailable detects the unknown_action API error', () => {
+  assert.equal(
+    isPageViewInfoUnavailable({ error: { code: 'unknown_action' } }),
+    true
+  );
+  assert.equal(
+    isPageViewInfoUnavailable({ error: { code: 'some_other_error' } }),
+    false
+  );
+  assert.equal(isPageViewInfoUnavailable({ query: {} }), false);
 });

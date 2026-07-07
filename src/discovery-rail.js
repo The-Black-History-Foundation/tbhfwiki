@@ -38,9 +38,34 @@ function renderCard(item) {
 	);
 }
 
+function transformMostViewed(apiResponse) {
+	const rows = apiResponse.query && apiResponse.query.mostviewed;
+
+	if ( !rows ) {
+		return null;
+	}
+
+	return rows.map( ( row ) => ( {
+		title: row.title,
+		views: row.count,
+		url: titleToUrl( row.title ),
+	} ) );
+}
+
+function isPageViewInfoUnavailable(apiResponse) {
+	return Boolean( apiResponse.error && apiResponse.error.code === 'unknown_action' );
+}
+
 // Guarded so this file can be pasted as-is into MediaWiki:Citizen.js (a plain
 // browser script where `module` does not exist) without throwing a
 // ReferenceError, while still being require()-able from Node tests.
 if ( typeof module !== 'undefined' ) {
-	module.exports = { transformRecentChanges, renderCard, titleToUrl, escapeHtml };
+	module.exports = {
+		transformRecentChanges,
+		renderCard,
+		titleToUrl,
+		escapeHtml,
+		transformMostViewed,
+		isPageViewInfoUnavailable,
+	};
 }
