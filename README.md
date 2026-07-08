@@ -69,6 +69,9 @@ and `docs/superpowers/plans/` for how each was built.
 | `LeadsBoard.wikitext` | Any page you link from navigation (e.g. "Research Leads") |
 | `AboutProject.wikitext` | A page titled `About This Wiki` |
 | `TermsOfUse.wikitext` | A page titled `Terms of Use` |
+| `Sidebar.wikitext` | `MediaWiki:Sidebar` |
+| `Explore-the-archive.wikitext` | `MediaWiki:Explore-the-archive` |
+| `About-and-contribute.wikitext` | `MediaWiki:About-and-contribute` |
 
 ### Optional extensions
 

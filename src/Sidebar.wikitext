@@ -1,0 +1,12 @@
+* explore-the-archive
+** Main Page|mainpage-description
+** Special:Random|Random Article
+** Research Leads|Research Leads
+** Special:Categories|Browse by Category
+* about-and-contribute
+** About This Wiki|About This Wiki
+** Help:Contributing|Contribute
+** Special:CreateAccount|Join the Project
+** Terms of Use|Terms of Use
+* SEARCH
+* TOOLBOX
