@@ -26,26 +26,12 @@
 
 		var api = new mw.Api();
 
-		api.get( {
-			action: 'query',
-			generator: 'categorymembers',
-			gcmtitle: 'Category:Lead Status Open',
-			gcmlimit: 50,
-			prop: 'extracts',
-			exintro: 1,
-			explaintext: 1,
-			exsentences: 1
-		} ).done( function ( openData ) {
-			var pages = ( openData.query && openData.query.pages ) || {};
-			var openTitles = [];
-			var extractsByTitle = {};
-
-			Object.keys( pages ).forEach( function ( pageId ) {
-				var page = pages[ pageId ];
-				openTitles.push( page.title );
-				extractsByTitle[ page.title ] = page.extract || '';
-			} );
-
+		// Shared downstream logic for both the primary (extracts-enabled) and
+		// fallback (extras-free) "get open leads" paths below: dispatch the six
+		// need-category calls, group, render. extractsByTitle is {} on the
+		// fallback path — renderLeadCard already omits the excerpt span when
+		// extract is falsy, so this degrades gracefully with titles only.
+		function proceedWithOpenLeads( openTitles, extractsByTitle ) {
 			if ( openTitles.length === 0 ) {
 				return;
 			}
@@ -106,8 +92,52 @@
 			} ).fail( function () {
 				mw.log.warn( 'research-leads: failed to fetch need-category memberships' );
 			} );
+		}
+
+		api.get( {
+			action: 'query',
+			generator: 'categorymembers',
+			gcmtitle: 'Category:Lead Status Open',
+			gcmlimit: 50,
+			prop: 'extracts',
+			exintro: 1,
+			explaintext: 1,
+			exsentences: 1
+		} ).done( function ( openData ) {
+			var pages = ( openData.query && openData.query.pages ) || {};
+			var openTitles = [];
+			var extractsByTitle = {};
+
+			Object.keys( pages ).forEach( function ( pageId ) {
+				var page = pages[ pageId ];
+				openTitles.push( page.title );
+				extractsByTitle[ page.title ] = page.extract || '';
+			} );
+
+			proceedWithOpenLeads( openTitles, extractsByTitle );
 		} ).fail( function () {
-			mw.log.warn( 'research-leads: failed to fetch open leads' );
+			// The primary call requests prop=extracts, which requires the
+			// optional TextExtracts extension. If that extension isn't
+			// installed, MediaWiki's core API rejects the unrecognized prop
+			// value and this call fails outright — even though the actual
+			// "which leads are open" list doesn't need TextExtracts at all.
+			// Retry with a plain, extras-free categorymembers call (core
+			// MediaWiki only) so the board still renders, just without
+			// excerpt text.
+			api.get( {
+				action: 'query',
+				list: 'categorymembers',
+				cmtitle: 'Category:Lead Status Open',
+				cmlimit: 50,
+				cmprop: 'title'
+			} ).done( function ( fallbackData ) {
+				var members = ( fallbackData.query && fallbackData.query.categorymembers ) || [];
+				var openTitles = members.map( function ( m ) { return m.title; } );
+
+				proceedWithOpenLeads( openTitles, {} );
+			} ).fail( function () {
+				mw.log.warn( 'research-leads: failed to fetch open leads' );
+			} );
 		} );
 	}
 
