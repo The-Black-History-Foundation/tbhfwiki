@@ -225,3 +225,17 @@ test('status badges use the established gold-fill/terracotta-fill/green-fill con
   assert.match(resolvedBlock, /background-color:\s*var\(\s*--bhf-color-success\s*\)/);
   assert.match(resolvedBlock, /color:\s*var\(\s*--color-surface-0\s*\)/);
 });
+
+test('defines the leads board group layout and lead-card classes', () => {
+  for (const cls of [
+    '.bhf-leads-group', '.bhf-leads-group__cards', '.bhf-lead-card',
+    '.bhf-lead-card__title', '.bhf-lead-card__excerpt'
+  ]) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('the lead card is a single anchor with no nested link (unlike the discovery rail card)', () => {
+  const block = css.match(/\.bhf-lead-card\s*{[^}]*}/s)[0];
+  assert.match(block, /text-decoration:\s*none/);
+});

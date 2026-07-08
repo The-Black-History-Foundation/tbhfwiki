@@ -1,0 +1,7 @@
+<div class="bhf-masthead">
+'''Research Leads'''
+
+''Community accounts that need help to move forward — archival research, translation, fieldwork, funding, expertise, or digitization.''
+</div>
+
+<div id="bhf-leads-board"></div>

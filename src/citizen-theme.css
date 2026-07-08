@@ -567,3 +567,43 @@
 	display: block;
 	font-size: 0.85rem;
 }
+
+.bhf-leads-group {
+	margin-bottom: 2rem;
+}
+
+.bhf-leads-group h2 {
+	font-family: var( --font-family-citizen-serif );
+	font-size: 1.1rem;
+}
+
+.bhf-leads-group__cards {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.bhf-lead-card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	padding: 0.5rem 0.75rem;
+	border-radius: 6px;
+	background-color: var( --color-surface-1 );
+	border: 1px solid var( --border-color-base );
+}
+
+.bhf-lead-card:hover {
+	background-color: var( --color-surface-2 );
+}
+
+.bhf-lead-card__title {
+	font-weight: 600;
+	color: var( --color-emphasized );
+}
+
+.bhf-lead-card__excerpt {
+	font-size: 0.85rem;
+	color: var( --color-subtle );
+	margin-top: 0.2rem;
+}
