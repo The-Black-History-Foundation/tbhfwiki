@@ -8,3 +8,5 @@
 </div>
 
 <div id="bhf-leads-board"></div>
+
+''See also: [[About This Wiki|About this project]] &middot; [[Terms of Use]]''

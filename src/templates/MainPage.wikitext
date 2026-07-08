@@ -31,7 +31,7 @@
 <div class="bhf-footer-band__links">
 '''About Us'''
 
-[[About]] &middot; [[Contact]]
+[[About]] &middot; [[Contact]] &middot; [[About This Wiki]] &middot; [[Terms of Use]]
 
 '''Get Involved'''
 

@@ -67,6 +67,8 @@ and `docs/superpowers/plans/` for how each was built.
 | `ContributorProfile.wikitext` | `Template:ContributorProfile` |
 | `ResearchLead.wikitext` | `Template:ResearchLead` |
 | `LeadsBoard.wikitext` | Any page you link from navigation (e.g. "Research Leads") |
+| `AboutProject.wikitext` | A page titled `About This Wiki` |
+| `TermsOfUse.wikitext` | A page titled `Terms of Use` |
 
 ### Optional extensions
 
