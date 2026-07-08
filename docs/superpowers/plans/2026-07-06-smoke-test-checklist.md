@@ -99,3 +99,11 @@ reference these names literally:
       capped at 80px tall — not the old text wordmark
 - [ ] Parchment backgrounds, espresso body text, and borders are
       UNCHANGED from before this re-theme
+- [ ] The "About This Wiki" page renders all six sections, the comparison
+      table displays as a proper table (not raw wikitext), and every
+      internal/external link resolves correctly
+- [ ] The "Terms of Use" page's draft/legal-review notice is the first
+      thing visible on the page and is visually distinct (bordered
+      callout), not easy to miss
+- [ ] Both pages are reachable from the Main Page footer's "About Us"
+      column and from the Research Leads board page
