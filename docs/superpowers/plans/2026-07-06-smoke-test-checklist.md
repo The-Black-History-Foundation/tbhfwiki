@@ -31,3 +31,18 @@
 - [ ] Resizing the browser to a mobile width collapses the hero to a single column
       and the infobox to full-width, non-floated
 - [ ] Browser console shows no JS errors on the Main Page or an article page
+- [ ] A `User:` page with `{{ContributorProfile}}` shows the bio and up to 5
+      interest tags
+- [ ] A `User:` page with a `featured` article set shows the featured-article
+      mini-card, linking to that article
+- [ ] For a user with edit history, the stats line populates automatically
+      with "N articles contributed", a citation count, and a last-active date
+      — no manual entry required
+- [ ] For a brand-new user with zero edits, the stats slot shows NOTHING (not
+      a broken "0 articles" state)
+- [ ] A "Recently Added" discovery-rail card's contributor name is a link to
+      their `User:` page, and the article title is a SEPARATE link — clicking
+      each goes to the right place, and the browser's dev tools show no
+      nested `<a>` tags in that card's markup
+- [ ] A Trending card (no `userUrl`) still shows its contributor/views text
+      as plain, non-linked text
