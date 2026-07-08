@@ -73,6 +73,14 @@ window → experts verify → on-chain anchoring). No integration code, wallet
 connection, or voting logic is built here — a real integration is a future,
 separately-scoped project.
 
+**Charity Coin connection:** also narrative-only, added alongside the DAO
+mention for the same reason. The research leads board (built in an earlier
+project) already has a `campaignUrl` field on funding-tagged leads,
+anticipating exactly this future link. The About page's "ultimate goal"
+section names Charity Coin — a fundraising platform TBHF is building — as
+the intended destination for that field, without building any actual
+payment/fundraising integration here.
+
 ## `AboutProject.wikitext` — Content
 
 ```wikitext
@@ -130,6 +138,16 @@ on what gets permanently preserved on-chain. That connection doesn't exist
 yet — this wiki's job today is to be the place where the research happens
 and matures. The DAO's job, when the two connect, will be to make the
 strongest of it permanent.
+
+Some leads need more than research time — they need money for an archive
+visit, a translator, a dive team, an expert consultation. Every research
+lead on this wiki that's tagged as needing funding is already built to
+carry a link to a specific fundraising campaign for that exact need. We
+intend for those links to eventually connect to Charity Coin, a fundraising
+platform we're building to support projects like this one. That connection
+doesn't exist yet either — but the moment it does, the path from "we know
+this happened, we just can't prove it yet" to "here's exactly how to help
+prove it" will be a single click.
 
 == How This Compares ==
 
