@@ -46,11 +46,11 @@ test('defines self-hosted @font-face rules for all five required weights/styles'
   );
   assert.match(
     css,
-    /font-family:\s*'TBHF-NeueKabel';\s*src:\s*url\(\s*'\/wiki\/Special:Redirect\/file\/NeueKabel-Book\.otf'\s*\)/
+    /font-family:\s*'TBHF-NeueKabel';\s*src:\s*url\(\s*'\/wiki\/Special:Redirect\/file\/NeueKabel-Book\.otf'\s*\)[^}]*font-weight:\s*400;\s*font-style:\s*normal;/
   );
   assert.match(
     css,
-    /url\(\s*'\/wiki\/Special:Redirect\/file\/NeueKabel-Bold\.otf'\s*\)[^}]*font-weight:\s*700;/
+    /url\(\s*'\/wiki\/Special:Redirect\/file\/NeueKabel-Bold\.otf'\s*\)[^}]*font-weight:\s*700;\s*font-style:\s*normal;/
   );
 });
 
