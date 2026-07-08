@@ -263,3 +263,9 @@ test('defines the masthead logo image class', () => {
   assert.match(block, /margin:\s*0\s*auto/);
   assert.match(block, /max-height:\s*80px/);
 });
+
+test('defines the legal-notice callout using the terracotta accent variable, not a hardcoded color', () => {
+  const block = css.match(/\.bhf-legal-notice\s*{[^}]*}/s)[0];
+  assert.match(block, /border-left:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+  assert.match(block, /border:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+});

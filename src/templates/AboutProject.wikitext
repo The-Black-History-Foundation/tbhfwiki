@@ -1,0 +1,93 @@
+<!-- src/templates/AboutProject.wikitext — paste as the content of a new
+    page titled "About This Wiki", then link to it from site navigation. -->
+== What This Is ==
+
+The Black History Foundation Wiki is a community-built archive for
+discovering, researching, and sharing Black history — especially the
+history that lives in family memory and community record before it ever
+reaches an archive, a textbook, or a museum.
+
+== Why We Built It ==
+
+In 1860, the ''Clotilda'' — the last known ship to bring enslaved Africans
+to the United States — arrived in Mobile Bay. The community of Africatown
+that its survivors founded told the story of that ship for more than a
+century. Historians dismissed it. It wasn't until 2019, when the wreck was
+finally located and confirmed, that the outside world caught up to what
+the community had known all along.
+
+That gap — between what a community knows and what gets counted as
+"verified" — is the reason this wiki exists. Community accounts, oral
+histories, and family records don't need institutional permission to be
+true. But they do need a place to be documented, discussed, corroborated,
+and — when the evidence comes together — recognized. This wiki is that
+place.
+
+== How To Use It ==
+
+* '''Browse''' the homepage's discovery rail for recently added and
+  actively-researched articles, or browse by category (People, Places,
+  Events, Eras).
+* '''Research''' an article's Sources section to see what's backing a
+  claim — every source is tagged with its type (archival document, oral
+  history, newspaper, and more) and a confidence rating (verified,
+  single-source, or disputed), so you always know how solid the ground is.
+* '''Contribute''' what you know — a new article, a citation, a correction
+  — and see your work reflected automatically on your contributor profile.
+* '''Post a research lead''' for a story you believe but can't yet prove,
+  tagged with exactly what it needs to move forward: archival access,
+  translation, fieldwork, funding, expertise, or digitization.
+* '''Discuss''' any article or lead on its Talk page.
+
+== Our Ultimate Goal ==
+
+Every unresolved research lead on this wiki represents a piece of history
+still waiting on the resources to confirm it — the same gap that kept the
+''Clotilda'' a community secret for over a hundred years. Our goal is to
+close that gap faster, in the open, with the community doing the work.
+
+Looking further ahead: as research on this wiki matures — corroborated,
+discussed, sourced — the best of it should have a path to permanence
+beyond this wiki. We intend for this wiki to eventually connect with
+[https://bh-dao.vercel.app Black History DAO], where the community votes
+on what gets permanently preserved on-chain. That connection doesn't exist
+yet — this wiki's job today is to be the place where the research happens
+and matures. The DAO's job, when the two connect, will be to make the
+strongest of it permanent.
+
+Some leads need more than research time — they need money for an archive
+visit, a translator, a dive team, an expert consultation. Every research
+lead on this wiki that's tagged as needing funding is already built to
+carry a link to a specific fundraising campaign for that exact need. We
+intend for those links to eventually connect to Charity Coin, a fundraising
+platform we're building to support projects like this one. That connection
+doesn't exist yet either — but the moment it does, the path from "we know
+this happened, we just can't prove it yet" to "here's exactly how to help
+prove it" will be a single click.
+
+== How This Compares ==
+
+{| class="wikitable"
+! Site !! What it does well !! Where this wiki is different
+|-
+| Wikipedia || Broad, well-governed, general-purpose encyclopedia || No built-in way to track how confident a claim is, or to flag what unresolved history needs to move forward
+|-
+| Ancestry.com / FamilySearch || Deep genealogical records, family-tree tools || Built for tracing your own lineage, not for community discovery and discussion of shared history
+|-
+| Fandom-style wikis || Polished, community-editable, great discovery UX || Built for entertainment franchises — no concept of source confidence, oral-history disclaimers, or research needs
+|-
+| BlackPast.org || Respected, expert-written reference on Black history || Written and reviewed by historians, not community-editable — no place for a family's account to live while it's still being proven
+|}
+
+== How This Serves Our Mission ==
+
+The Black History Foundation's mission is to empower the African diaspora
+through education, cultural celebration, and the preservation of our
+history — believing that protecting our past is the key to a stronger,
+more unified future. This wiki puts that mission into practice across all
+four of the Foundation's pillars: '''education''' (every article is a
+teaching resource), '''technology''' (the citation and research-leads
+tooling built into this wiki), '''cultural preservation''' (a home for
+accounts that would otherwise stay undocumented), and '''community
+engagement''' (research is done together, in the open, not behind an
+institution's walls).
