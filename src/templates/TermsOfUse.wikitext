@@ -1,3 +1,7 @@
+<!-- src/templates/TermsOfUse.wikitext — paste as the content of a new
+    page titled "Terms of Use", then link to it from site navigation.
+    HTML comments don't render, so this doesn't affect the legal-review
+    notice below being the first VISIBLE thing on the page. -->
 <div class="bhf-legal-notice">
 '''This page is a draft.''' It has not been reviewed by a lawyer. Do not
 treat this as final or legally binding until The Black History Foundation
