@@ -266,10 +266,37 @@
 	transform: translateY( -2px );
 }
 
+/* Category tile icons — CSS background-image data URIs on a plain <span>,
+ * NOT inline <svg> tags. MediaWiki's Sanitizer does not allow raw <svg> in
+ * wikitext content either (same root cause as the hero search form issue
+ * above) -- it HTML-escapes <svg>...</svg> into visible, broken text
+ * instead of rendering it. Confirmed on a live test wiki. Colors are
+ * hardcoded to match --bhf-color-text-on-gold (#2A1D14) and
+ * --bhf-color-accent-gold (#FFD700) since CSS custom properties cannot be
+ * referenced inside a data: URI. */
 .bhf-category-tile__icon {
+	display: block;
 	width: 32px;
 	height: 32px;
-	fill: currentColor;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.bhf-category-tile--people .bhf-category-tile__icon {
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8'/%3E%3C/svg%3E" );
+}
+
+.bhf-category-tile--places .bhf-category-tile__icon {
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Cpath d='M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-4-3-7-7-7z'/%3E%3Ccircle cx='12' cy='9' r='2.5' fill='%23FFD700' stroke='none'/%3E%3C/svg%3E" );
+}
+
+.bhf-category-tile--events .bhf-category-tile__icon {
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E" );
+}
+
+.bhf-category-tile--eras .bhf-category-tile__icon {
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 3'/%3E%3C/svg%3E" );
 }
 
 #firstHeading,

@@ -326,11 +326,20 @@ test('category tiles have a real interactive hover/focus state and room for an i
   assert.match(css, /\.bhf-category-tile__icon\s*{[^}]*}/s);
 });
 
-test('category tile icons are inline SVG, not external image files', () => {
+test('category tile icons are a plain <span> styled via CSS data URIs, not inline <svg> or external image files', () => {
   const mainPage = fs.readFileSync(
     path.join(__dirname, '..', 'src', 'templates', 'MainPage.wikitext'),
     'utf8'
   );
-  assert.match(mainPage, /<svg[^>]*class="bhf-category-tile__icon"/);
+  // MediaWiki's Sanitizer does not allow raw <svg> in wikitext content
+  // either (same root cause as the hero search form issue) -- it
+  // HTML-escapes <svg>...</svg> into visible, broken text instead of
+  // rendering it. Confirmed on a live test wiki.
+  assert.ok(!mainPage.includes('<svg'), 'must not use a raw <svg> tag');
+  assert.match(mainPage, /<span class="bhf-category-tile__icon"><\/span>/);
   assert.ok(!mainPage.includes('[[File:People-icon'));
+
+  for (const modifier of ['--people', '--places', '--events', '--eras']) {
+    assert.match(css, new RegExp(`\\.bhf-category-tile${modifier} \\.bhf-category-tile__icon\\s*{[^}]*background-image:\\s*url\\(`));
+  }
 });

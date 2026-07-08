@@ -36,10 +36,10 @@ In 1860, the community of Africatown told the story of the ''Clotilda'' for over
 <!-- populated client-side by discovery-rail.bootstrap.js, see Task 5-7 -->
 
 <div class="bhf-category-strip">
-[[:Category:People|<div class="bhf-category-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bhf-category-tile__icon"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>People</div>]]
-[[:Category:Places|<div class="bhf-category-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bhf-category-tile__icon"><path d="M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="var(--bhf-color-accent-gold)"/></svg>Places</div>]]
-[[:Category:Events|<div class="bhf-category-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bhf-category-tile__icon"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Events</div>]]
-[[:Category:Eras|<div class="bhf-category-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="bhf-category-tile__icon"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Eras</div>]]
+[[:Category:People|<div class="bhf-category-tile bhf-category-tile--people"><span class="bhf-category-tile__icon"></span>People</div>]]
+[[:Category:Places|<div class="bhf-category-tile bhf-category-tile--places"><span class="bhf-category-tile__icon"></span>Places</div>]]
+[[:Category:Events|<div class="bhf-category-tile bhf-category-tile--events"><span class="bhf-category-tile__icon"></span>Events</div>]]
+[[:Category:Eras|<div class="bhf-category-tile bhf-category-tile--eras"><span class="bhf-category-tile__icon"></span>Eras</div>]]
 </div>
 
 <div class="bhf-footer-band">
