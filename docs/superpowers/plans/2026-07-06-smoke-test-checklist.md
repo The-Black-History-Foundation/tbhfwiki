@@ -65,6 +65,12 @@
       directly)
 - [ ] Browser console shows no JS errors on the Leads Board page, including
       when zero leads are currently open (empty board, not a broken one)
+- [ ] `Template:ResearchLead` itself does NOT appear as a phantom entry on
+      the Research Leads board or in `Category:Research Leads` (confirms
+      the `<includeonly>` wrapper around its categorization is intact —
+      without it, viewing the template's own definition page applies its
+      `[[Category:...]]` tags to the template page itself, a bug only
+      found once this checklist was actually run against a live wiki)
 
 ## Required asset uploads for the TBHF brand re-theme
 
