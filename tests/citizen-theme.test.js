@@ -298,3 +298,17 @@ test('defines the mission band with a distinct surface from the parchment page b
   assert.match(block, /background-color:\s*var\(\s*--color-surface-2\s*\)/);
   assert.match(block, /margin-block:\s*var\(\s*--bhf-homepage-section-spacing\s*\)/);
 });
+
+test('discovery rail section headings use the shared eyebrow treatment', () => {
+  const block = css.match(/\.bhf-rail__column h2\s*{[^}]*}/s)[0];
+  assert.match(block, /font-size:\s*var\(\s*--bhf-eyebrow-font-size\s*\)/);
+  assert.match(block, /letter-spacing:\s*var\(\s*--bhf-eyebrow-letter-spacing\s*\)/);
+});
+
+test('discovery rail cards render as a responsive grid with a gold-bordered shell', () => {
+  const cardsBlock = css.match(/\.bhf-rail__cards\s*{[^}]*}/s)[0];
+  assert.match(cardsBlock, /display:\s*grid/);
+
+  const cardBlock = css.match(/\.bhf-rail-card\s*{[^}]*}/s)[0];
+  assert.match(cardBlock, /border:.*var\(\s*--bhf-color-accent-gold\s*\)/);
+});
