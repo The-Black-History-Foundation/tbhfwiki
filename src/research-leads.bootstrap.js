@@ -100,6 +100,7 @@
 			gcmtitle: 'Category:Lead Status Open',
 			gcmlimit: 50,
 			prop: 'extracts',
+			exlimit: 'max',
 			exintro: 1,
 			explaintext: 1,
 			exsentences: 1
