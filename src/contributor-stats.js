@@ -20,7 +20,7 @@ function lastActiveDate(contributions) {
 }
 
 function countCitationTemplateUsages(wikitext) {
-	const matches = wikitext.match( /\{\{\s*Citation[|}]/gi );
+	const matches = wikitext.match( /\{\{\s*Citation\s*[|}]/gi );
 	return matches ? matches.length : 0;
 }
 

@@ -49,6 +49,13 @@ test('countCitationTemplateUsages is case-insensitive on the template name', () 
   );
 });
 
+test('countCitationTemplateUsages counts a citation with whitespace before the first pipe', () => {
+  assert.equal(
+    countCitationTemplateUsages('{{Citation |title=A|type=book|confidence=verified}}'),
+    1
+  );
+});
+
 test('sumCitationCounts sums an array of per-page counts', () => {
   assert.equal(sumCitationCounts([2, 0, 5, 1]), 8);
 });

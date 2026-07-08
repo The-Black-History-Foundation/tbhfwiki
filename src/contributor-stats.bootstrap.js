@@ -22,6 +22,7 @@
 			action: 'query',
 			list: 'usercontribs',
 			ucuser: username,
+			ucnamespace: 0,
 			uclimit: 50,
 			ucprop: 'title|timestamp'
 		} ).done( function ( data ) {
@@ -34,7 +35,6 @@
 				return;
 			}
 
-			var articleCount = countDistinctArticles( contributions );
 			var lastActive = lastActiveDate( contributions );
 			var seen = {};
 			var distinctTitles = [];
@@ -45,6 +45,8 @@
 					distinctTitles.push( c.title );
 				}
 			} );
+
+			var articleCount = distinctTitles.length;
 
 			// usercontribs is already capped at 50 (uclimit above), so
 			// distinctTitles.length is at most 50 — no separate cap needed
@@ -68,10 +70,16 @@
 				} );
 				var citationCount = sumCitationCounts( perPageCounts );
 
-				mount.textContent = articleCount + ' articles contributed · ' +
-					citationCount + ' citations across your ' + distinctTitles.length +
+				mount.textContent = articleCount + ' distinct article' +
+					( articleCount === 1 ? '' : 's' ) + ' among your last ' +
+					contributions.length + ' edit' + ( contributions.length === 1 ? '' : 's' ) +
+					' · ' + citationCount + ' citations across your ' + distinctTitles.length +
 					' most recently edited articles · last active ' + lastActive;
+			} ).fail( function ( code, errorData ) {
+				mw.log.warn( 'bhf-contributor-stats: revisions query failed', code, errorData );
 			} );
+		} ).fail( function ( code, errorData ) {
+			mw.log.warn( 'bhf-contributor-stats: usercontribs query failed', code, errorData );
 		} );
 	}
 
