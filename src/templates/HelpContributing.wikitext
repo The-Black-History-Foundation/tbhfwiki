@@ -1,0 +1,40 @@
+<!-- src/templates/HelpContributing.wikitext — paste as Help:Contributing
+    Linked from the Main Page footer and the sidebar's "About and
+    Contribute" section — this page never existed before, so both links
+    404'd until now. -->
+== How to Contribute ==
+
+This wiki grows from community knowledge — family memory, oral history,
+and research that hasn't made it into an archive yet. Here's how to add
+to it.
+
+=== Create an account ===
+
+[[Special:CreateAccount|Create an account]] to edit pages, start new
+articles, and post research leads. Once you're signed in, your own
+contributor profile tracks your edits and citations automatically.
+
+=== Add or edit an article ===
+
+Use the '''edit''' link at the top of any page. New articles should
+include an infobox, a breadcrumb, and — wherever possible — sources under
+a "Sources" heading, so readers can see how solid the ground is.
+
+=== Cite your sources ===
+
+Every claim is stronger with a source behind it. Use
+{{Citation|title=...}} to add one, tagging its type and how confident you
+are in it (verified, single source, or disputed) — even a single-source or
+disputed account is worth recording.
+
+=== Post a research lead ===
+
+If you know a story that isn't provable yet — a family account, a
+half-confirmed record, something that needs archival access, translation,
+fieldwork, funding, expertise, or digitization to move forward — post it
+on the [[Research Leads]] board rather than waiting until it's fully
+proven.
+
+=== Questions ===
+
+Reach out through [[Contact]] if you're not sure where to start.

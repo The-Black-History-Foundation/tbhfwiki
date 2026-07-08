@@ -290,7 +290,7 @@ test('the hero banner search form targets real Special:Search', () => {
     'utf8'
   );
   assert.match(mainPage, /<input type="hidden" name="title" value="Special:Search">/);
-  assert.match(mainPage, /<form action="\/index\.php" method="get"/);
+  assert.match(mainPage, /<form action="{{SCRIPTPATH}}\/index\.php" method="get"/);
 });
 
 test('defines the mission band with a distinct surface from the parchment page background', () => {
