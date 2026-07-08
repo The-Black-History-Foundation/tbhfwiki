@@ -80,6 +80,17 @@ and `docs/superpowers/plans/` for how each was built.
 | `Explore-the-archive.wikitext` | `MediaWiki:Explore-the-archive` |
 | `About-and-contribute.wikitext` | `MediaWiki:About-and-contribute` |
 
+### Required extension
+
+- **InputBox** — powers the homepage's hero search box
+  (`src/templates/MainPage.wikitext` uses the `<inputbox>` tag). MediaWiki's
+  Sanitizer does not allow raw `<form>`/`<input>`/`<button>` tags in
+  wikitext content — it HTML-escapes them into visible, non-functional text
+  instead of rendering a working form. InputBox is bundled with core
+  MediaWiki downloads (nothing extra to download); `LocalSettings-snippet.php`
+  enables it with `wfLoadExtension('InputBox')`. Without this, the search
+  box on the homepage will not work.
+
 ### Optional extensions
 
 Two features degrade gracefully if these aren't installed — nothing breaks,

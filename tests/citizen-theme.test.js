@@ -281,16 +281,19 @@ test('defines the hero banner with a real MediaWiki search form', () => {
   assert.match(block, /display:\s*flex/);
 
   assert.match(css, /\.bhf-hero-banner__eyebrow\s*{[^}]*font-size:\s*var\(\s*--bhf-eyebrow-font-size\s*\)/s);
-  assert.match(css, /\.bhf-hero-banner__search-form\s*{[^}]*}/s);
+  assert.match(css, /\.bhf-hero-banner__search \.searchbox\s*{[^}]*}/s);
 });
 
-test('the hero banner search form targets real Special:Search', () => {
+test('the hero banner uses the InputBox extension, not a raw HTML form MediaWiki would escape', () => {
   const mainPage = fs.readFileSync(
     path.join(__dirname, '..', 'src', 'templates', 'MainPage.wikitext'),
     'utf8'
   );
-  assert.match(mainPage, /<input type="hidden" name="title" value="Special:Search">/);
-  assert.match(mainPage, /<form action="{{SCRIPTPATH}}\/index\.php" method="get"/);
+  // MediaWiki's Sanitizer does not allow raw <form>/<input>/<button> tags in
+  // wikitext -- it HTML-escapes them into visible, non-functional text
+  // instead of rendering a working form. Confirmed on a live test wiki.
+  assert.ok(!mainPage.includes('<form '), 'must not use a raw <form> tag');
+  assert.match(mainPage, /<inputbox>\s*type=fulltext/);
 });
 
 test('defines the mission band with a distinct surface from the parchment page background', () => {

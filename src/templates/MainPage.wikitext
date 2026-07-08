@@ -14,11 +14,13 @@
 </div>
 <div class="bhf-hero-banner__search">
 <span class="bhf-hero-banner__search-label">Explore the Archive</span>
-<form action="{{SCRIPTPATH}}/index.php" method="get" class="bhf-hero-banner__search-form">
-<input type="hidden" name="title" value="Special:Search">
-<input type="search" name="search" placeholder="Search people, places, events…" class="bhf-hero-banner__search-input">
-<button type="submit" class="bhf-hero-banner__search-button">Search</button>
-</form>
+<inputbox>
+type=fulltext
+width=30
+placeholder=Search people, places, events…
+searchbuttonlabel=Search
+break=no
+</inputbox>
 </div>
 </div>
 

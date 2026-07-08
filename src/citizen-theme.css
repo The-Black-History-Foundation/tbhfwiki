@@ -201,20 +201,34 @@
 	font-weight: 700;
 }
 
-.bhf-hero-banner__search-form {
+/* The search box itself is the InputBox extension's <inputbox> tag, not
+ * hand-rolled markup — MediaWiki's Sanitizer does not allow raw
+ * <form>/<input>/<button> tags in wikitext (it HTML-escapes them into
+ * visible, non-functional text). These rules target InputBox's own
+ * generated class names (.mw-inputbox-centered, .searchbox,
+ * .mw-searchInput), scoped under our wrapper so nothing else on the page
+ * is affected. */
+.bhf-hero-banner__search .mw-inputbox-centered {
+	text-align: left;
+	margin: 0;
+}
+
+.bhf-hero-banner__search .searchbox {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 }
 
-.bhf-hero-banner__search-input {
+.bhf-hero-banner__search input.mw-searchInput {
+	width: 100%;
+	box-sizing: border-box;
 	padding: 0.6rem 0.75rem;
 	border: 1px solid var( --border-color-base );
 	border-radius: 6px;
 	font-size: 1rem;
 }
 
-.bhf-hero-banner__search-button {
+.bhf-hero-banner__search input[type="submit"] {
 	background-color: var( --bhf-color-accent-gold );
 	color: var( --bhf-color-text-on-gold );
 	border: none;
