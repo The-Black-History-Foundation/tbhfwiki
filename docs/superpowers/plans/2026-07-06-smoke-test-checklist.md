@@ -46,3 +46,20 @@
       nested `<a>` tags in that card's markup
 - [ ] A Trending card (no `userUrl`) still shows its contributor/views text
       as plain, non-linked text
+- [ ] A lead page with `{{ResearchLead|status=open|needed1=archival|needed2=fieldwork|...}}`
+      shows the summary, known-so-far text, both need tags with their labels
+      (not raw parameter values), an "Open" gold status badge, and a working
+      "Discuss this lead" link to its Talk page
+- [ ] The lead page's category footer includes "Research Leads", "Needs
+      Archival Access", "Needs Fieldwork", and "Lead Status Open" (invisible
+      in the card itself, visible in the standard MediaWiki category footer)
+- [ ] The Research Leads board page shows that same lead under BOTH the
+      "Needs Archival Access" and "Needs Fieldwork" groups
+- [ ] Changing that lead's `status` to `resolved` and re-saving removes it
+      from the board entirely, even though its need-categories haven't
+      changed
+- [ ] A lead with no `neededN` values set shows no need tags, and does not
+      appear in any group on the board (only in `Category:Research Leads`
+      directly)
+- [ ] Browser console shows no JS errors on the Leads Board page, including
+      when zero leads are currently open (empty board, not a broken one)
