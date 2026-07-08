@@ -1,3 +1,6 @@
+<!-- src/templates/LeadsBoard.wikitext — paste as the content of a new page
+    (e.g. "Research Leads"), then link to it from site navigation so
+    visitors can find it. -->
 <div class="bhf-masthead">
 '''Research Leads'''
 
