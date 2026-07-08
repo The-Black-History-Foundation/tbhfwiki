@@ -269,3 +269,9 @@ test('defines the legal-notice callout using the terracotta accent variable, not
   assert.match(block, /border-left:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
   assert.match(block, /border:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
 });
+
+test('defines shared homepage spacing and eyebrow-label tokens', () => {
+  assert.match(css, /--bhf-homepage-section-spacing:\s*3rem/);
+  assert.match(css, /--bhf-eyebrow-font-size:\s*0\.8rem/);
+  assert.match(css, /--bhf-eyebrow-letter-spacing:\s*0\.08em/);
+});

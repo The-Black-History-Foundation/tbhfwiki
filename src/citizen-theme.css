@@ -104,6 +104,14 @@
 	--color-base: #2A1D14;
 	--color-emphasized: #2A1D14;
 	--border-color-base: #D9CBB4;
+
+	/* Homepage-redesign-only tokens — shared vertical rhythm and
+	 * "eyebrow" label styling across the hero banner, mission section,
+	 * and discovery rail headings. Not used by any already-shipped
+	 * component (infobox, citation/evidence tags, pull-quote, etc.). */
+	--bhf-homepage-section-spacing: 3rem;
+	--bhf-eyebrow-font-size: 0.8rem;
+	--bhf-eyebrow-letter-spacing: 0.08em;
 }
 
 /* Subtle paper-grain texture — inline SVG fractal noise, no external asset.
