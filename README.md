@@ -52,6 +52,12 @@ and `docs/superpowers/plans/` for how each was built.
    below for what to name each one).
 7. Create a page (e.g. "Research Leads") with the contents of
    `src/templates/LeadsBoard.wikitext` and link it from site navigation.
+8. Paste `src/Sidebar.wikitext`, `src/Explore-the-archive.wikitext`, and
+   `src/About-and-contribute.wikitext` (also listed in the table below,
+   but — like `src/Citizen-preferences.json` above — these three live at
+   the top level of `src/`, not under `src/templates/`) into
+   `MediaWiki:Sidebar`, `MediaWiki:Explore-the-archive`, and
+   `MediaWiki:About-and-contribute` respectively.
 
 ### Templates
 
