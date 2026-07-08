@@ -275,3 +275,20 @@ test('defines shared homepage spacing and eyebrow-label tokens', () => {
   assert.match(css, /--bhf-eyebrow-font-size:\s*0\.8rem/);
   assert.match(css, /--bhf-eyebrow-letter-spacing:\s*0\.08em/);
 });
+
+test('defines the hero banner with a real MediaWiki search form', () => {
+  const block = css.match(/\.bhf-hero-banner\s*{[^}]*}/s)[0];
+  assert.match(block, /display:\s*flex/);
+
+  assert.match(css, /\.bhf-hero-banner__eyebrow\s*{[^}]*font-size:\s*var\(\s*--bhf-eyebrow-font-size\s*\)/s);
+  assert.match(css, /\.bhf-hero-banner__search-form\s*{[^}]*}/s);
+});
+
+test('the hero banner search form targets real Special:Search', () => {
+  const mainPage = fs.readFileSync(
+    path.join(__dirname, '..', 'src', 'templates', 'MainPage.wikitext'),
+    'utf8'
+  );
+  assert.match(mainPage, /<input type="hidden" name="title" value="Special:Search">/);
+  assert.match(mainPage, /<form action="\/index\.php" method="get"/);
+});

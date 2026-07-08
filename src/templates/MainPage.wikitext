@@ -5,12 +5,20 @@
 <span class="bhf-masthead__tagline">''Discover. Preserve. Share.''</span>
 </div>
 
-<div class="bhf-hero">
+<div class="bhf-hero-banner bhf-texture-parchment">
+<div class="bhf-hero-banner__content">
 [[File:Featured-placeholder.jpg|thumb|none]]
-<div>
-<span class="bhf-hero__title">{{FEATURED_TITLE}}</span>
-
-{{FEATURED_EXCERPT}}
+<span class="bhf-hero-banner__eyebrow">Featured Research</span>
+<span class="bhf-hero-banner__title">{{FEATURED_TITLE}}</span>
+<div class="bhf-hero-banner__excerpt">{{FEATURED_EXCERPT}}</div>
+</div>
+<div class="bhf-hero-banner__search">
+<span class="bhf-hero-banner__search-label">Explore the Archive</span>
+<form action="/index.php" method="get" class="bhf-hero-banner__search-form">
+<input type="hidden" name="title" value="Special:Search">
+<input type="search" name="search" placeholder="Search people, places, events…" class="bhf-hero-banner__search-input">
+<button type="submit" class="bhf-hero-banner__search-button">Search</button>
+</form>
 </div>
 </div>
 

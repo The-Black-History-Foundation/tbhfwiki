@@ -138,25 +138,90 @@
 	font-style: italic;
 }
 
-.bhf-hero {
+.bhf-hero-banner {
 	display: flex;
-	gap: 1.5rem;
-	align-items: center;
+	gap: 2rem;
+	align-items: stretch;
 	background-color: var( --color-surface-1 );
 	border: 1px solid var( --border-color-base );
 	border-radius: 8px;
-	padding: 1.5rem;
-	margin-block: 1.5rem;
+	padding: 2rem;
+	margin-block: var( --bhf-homepage-section-spacing );
 }
 
-.bhf-hero img {
-	max-width: 40%;
+.bhf-hero-banner__content {
+	flex: 2 1 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.bhf-hero-banner__content img {
+	max-width: 100%;
 	border-radius: 6px;
 }
 
-.bhf-hero__title {
+.bhf-hero-banner__eyebrow {
+	font-family: var( --font-family-citizen-base );
+	font-size: var( --bhf-eyebrow-font-size );
+	letter-spacing: var( --bhf-eyebrow-letter-spacing );
+	text-transform: uppercase;
+	color: var( --bhf-color-accent-terracotta );
+	font-weight: 700;
+}
+
+.bhf-hero-banner__title {
 	font-family: var( --font-family-citizen-serif );
-	font-size: 1.5rem;
+	font-size: 2rem;
+}
+
+.bhf-hero-banner__excerpt {
+	font-style: italic;
+	border-left: 3px solid var( --bhf-color-accent-gold );
+	padding-left: 1rem;
+}
+
+.bhf-hero-banner__search {
+	flex: 1 1 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.75rem;
+	background-color: var( --color-surface-0 );
+	border: 1px solid var( --bhf-color-accent-gold );
+	border-radius: 8px;
+	padding: 1.5rem;
+}
+
+.bhf-hero-banner__search-label {
+	font-family: var( --font-family-citizen-base );
+	font-size: var( --bhf-eyebrow-font-size );
+	letter-spacing: var( --bhf-eyebrow-letter-spacing );
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.bhf-hero-banner__search-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.bhf-hero-banner__search-input {
+	padding: 0.6rem 0.75rem;
+	border: 1px solid var( --border-color-base );
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+.bhf-hero-banner__search-button {
+	background-color: var( --bhf-color-accent-gold );
+	color: var( --bhf-color-text-on-gold );
+	border: none;
+	border-radius: 6px;
+	padding: 0.6rem 1rem;
+	font-weight: 600;
+	cursor: pointer;
 }
 
 .bhf-category-strip {
@@ -251,12 +316,8 @@
 }
 
 @media ( max-width: 640px ) {
-	.bhf-hero {
+	.bhf-hero-banner {
 		flex-direction: column;
-	}
-
-	.bhf-hero img {
-		max-width: 100%;
 	}
 }
 
