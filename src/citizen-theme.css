@@ -640,3 +640,9 @@
 	color: var( --color-subtle );
 	margin-top: 0.2rem;
 }
+
+.bhf-masthead__logo {
+	display: block;
+	margin: 0 auto;
+	max-height: 80px;
+}

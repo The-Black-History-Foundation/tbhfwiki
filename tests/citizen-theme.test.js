@@ -256,3 +256,10 @@ test('the lead card is a single anchor with no nested link (unlike the discovery
   const block = css.match(/\.bhf-lead-card\s*{[^}]*}/s)[0];
   assert.match(block, /text-decoration:\s*none/);
 });
+
+test('defines the masthead logo image class', () => {
+  const block = css.match(/\.bhf-masthead__logo\s*{[^}]*}/s)[0];
+  assert.match(block, /display:\s*block/);
+  assert.match(block, /margin:\s*0\s*auto/);
+  assert.match(block, /max-height:\s*80px/);
+});

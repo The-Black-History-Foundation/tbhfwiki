@@ -1,6 +1,6 @@
 <!-- src/templates/MainPage.wikitext — paste as the wiki's Main Page content -->
 <div class="bhf-masthead bhf-texture-parchment">
-'''The Black History Foundation Wiki'''
+[[File:TBHF-Logo.png|center|link=|alt=The Black History Foundation|class=bhf-masthead__logo]]
 
 <span class="bhf-masthead__tagline">''Discover. Preserve. Share.''</span>
 </div>
