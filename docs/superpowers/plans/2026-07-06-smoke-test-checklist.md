@@ -63,3 +63,37 @@
       directly)
 - [ ] Browser console shows no JS errors on the Leads Board page, including
       when zero leads are currently open (empty board, not a broken one)
+
+## Required asset uploads for the TBHF brand re-theme
+
+Before running the checklist items below, upload these 6 files to the wiki
+as `File:` pages (Special:Upload), using these EXACT filenames — the CSS's
+`Special:Redirect/file/` URLs and the Main Page's `[[File:TBHF-Logo.png]]`
+reference these names literally:
+
+- `File:Helvetica.ttf` — from TBHFDN's `public/Fonts/Helvetica/Helvetica.ttf`
+- `File:Helvetica-Bold.ttf` — from `public/Fonts/Helvetica/Helvetica-Bold.ttf`
+- `File:Helvetica-Oblique.ttf` — from `public/Fonts/Helvetica/Helvetica-Oblique.ttf`
+- `File:NeueKabel-Book.otf` — from `public/Fonts/Neue-Kabel/NeueKabel-Book.otf`
+- `File:NeueKabel-Bold.otf` — from `public/Fonts/Neue-Kabel/NeueKabel-Bold.otf`
+- `File:TBHF-Logo.png` — from `public/Logos/TBHF_Logo_Full Color.png`
+
+- [ ] Links and borders across the site render in Firebrick Red (not the
+      old deep brown)
+- [ ] The gold "Sources cited" badge, category tiles, and lead "Open"
+      status badge all show espresso text on a bright gold (`#FFD700`)
+      background — never gold as small text
+- [ ] The "Reviewer confirmed" badge, "resolved" lead status, and verified
+      citation confidence tag all render in Dark Green
+- [ ] A disputed citation tag, an in-progress lead status badge, and the
+      dashed contribute-prompt border all render in Firebrick Red (the
+      same red as links — this is the intended terracotta-to-red merge,
+      not a bug)
+- [ ] Headings render in Neue Kabel and body text in Helvetica once the
+      5 font files are uploaded — if a font isn't uploaded yet, that
+      role should cleanly fall back to system Helvetica/Arial, not show
+      a broken/missing-glyph state
+- [ ] The Main Page masthead shows the real TBHF logo image, centered,
+      capped at 80px tall — not the old text wordmark
+- [ ] Parchment backgrounds, espresso body text, and borders are
+      UNCHANGED from before this re-theme
