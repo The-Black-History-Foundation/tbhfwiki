@@ -1,0 +1,82 @@
+<div class="bhf-legal-notice">
+'''This page is a draft.''' It has not been reviewed by a lawyer. Do not
+treat this as final or legally binding until The Black History Foundation
+has had these terms reviewed by qualified legal counsel.
+</div>
+
+''Last updated: {{CURRENTMONTHNAME}} {{CURRENTYEAR}}''
+
+== 1. Acceptance of Terms ==
+
+By accessing and using this wiki, you accept and agree to be bound by
+these Terms of Use. If you do not agree to these terms, please do not use
+this wiki. These terms apply specifically to this wiki and are separate
+from — and do not replace — the [https://www.tbhfdn.org/terms-of-use
+Terms of Use] for The Black History Foundation's main website.
+
+== 2. Contributing to This Wiki ==
+
+Unlike the main tbhfdn.org website, this wiki is built on community
+contribution. By submitting an article, citation, research lead, or any
+other content to this wiki, you agree to license your contribution under
+the [https://creativecommons.org/licenses/by-sa/4.0/ Creative Commons
+Attribution-ShareAlike 4.0 License] (CC BY-SA) — the same open license
+Wikipedia uses. This means your contribution can be freely reused, edited,
+and reshared by others, including outside this wiki, as long as they give
+appropriate credit and share any changes under the same license. This
+license applies only to content contributed to this wiki, not to
+tbhfdn.org's own site content, which remains under the main site's Terms
+of Use.
+
+== 3. Community Conduct ==
+
+You agree to use this wiki for lawful purposes only, to contribute in good
+faith, and not to submit content that is knowingly false, defamatory, or
+infringes on someone else's rights. Vandalism, harassment, and bad-faith
+editing may result in your contributions being reverted and your access
+restricted.
+
+== 4. Oral History & Community Accounts ==
+
+This wiki exists specifically to hold community accounts and oral
+histories that may not yet have institutional or archival confirmation.
+Every source on this wiki is tagged with a confidence rating —
+'''verified''', '''single-source''', or '''disputed''' — so readers can see
+at a glance how well-corroborated a claim is. A single-source or disputed
+account is presented as a community record, not as verified fact. We make
+no representation that any un-verified account is accurate, and we
+encourage readers to check a source's confidence rating before treating
+any claim as settled.
+
+== 5. Third-Party Links ==
+
+This wiki may contain links to third-party websites, including
+tbhfdn.org, Black History DAO, and sources cited in articles. We are not
+responsible for the content, privacy practices, or availability of these
+external sites. The inclusion of any link does not imply endorsement.
+
+== 6. Disclaimer of Warranties ==
+
+This wiki is provided "as is" without warranties of any kind, either
+express or implied. We do not warrant that the wiki will be uninterrupted,
+error-free, or that any community-contributed content is accurate or
+complete.
+
+== 7. Limitation of Liability ==
+
+To the fullest extent permitted by law, The Black History Foundation shall
+not be liable for any indirect, incidental, special, consequential, or
+punitive damages arising from your use of this wiki or reliance on any
+content within it.
+
+== 8. Changes to These Terms ==
+
+We reserve the right to modify these Terms of Use at any time. Changes
+will be effective immediately upon posting to this wiki. Your continued
+use of the wiki after any changes constitutes acceptance of the modified
+terms.
+
+== 9. Contact ==
+
+If you have questions about these Terms of Use, please contact us through
+[https://www.tbhfdn.org/contact our contact page].
