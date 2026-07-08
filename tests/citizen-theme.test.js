@@ -312,3 +312,22 @@ test('discovery rail cards render as a responsive grid with a gold-bordered shel
   const cardBlock = css.match(/\.bhf-rail-card\s*{[^}]*}/s)[0];
   assert.match(cardBlock, /border:.*var\(\s*--bhf-color-accent-gold\s*\)/);
 });
+
+test('category tiles have a real interactive hover/focus state and room for an icon', () => {
+  const block = css.match(/\.bhf-category-tile\s*{[^}]*}/s)[0];
+  assert.match(block, /padding:\s*1\.5rem/);
+
+  const hoverBlock = css.match(/\.bhf-category-tile:hover,?\s*\.bhf-category-tile:focus\s*{[^}]*}/s)[0];
+  assert.match(hoverBlock, /transform:/);
+
+  assert.match(css, /\.bhf-category-tile__icon\s*{[^}]*}/s);
+});
+
+test('category tile icons are inline SVG, not external image files', () => {
+  const mainPage = fs.readFileSync(
+    path.join(__dirname, '..', 'src', 'templates', 'MainPage.wikitext'),
+    'utf8'
+  );
+  assert.match(mainPage, /<svg[^>]*class="bhf-category-tile__icon"/);
+  assert.ok(!mainPage.includes('[[File:People-icon'));
+});
