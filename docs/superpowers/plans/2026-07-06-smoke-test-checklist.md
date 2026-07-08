@@ -119,3 +119,24 @@ without any of the font/logo files above.
       callout), not easy to miss
 - [ ] Both pages are reachable from the Main Page footer's "About Us"
       column and from the Research Leads board page
+
+## Homepage redesign
+
+- [ ] The hero banner shows the featured article and a search panel side
+      by side (stacked on mobile widths)
+- [ ] Typing a query into the hero search box and submitting lands on
+      real `Special:Search` results with actual matches — not a broken
+      link or a 404
+- [ ] The "Why This Archive Exists" mission band renders between the hero
+      banner and the discovery rail, and its "Read our full story" link
+      reaches the real "About This Wiki" page
+- [ ] Discovery rail cards render as a grid (not a single stacked column)
+      on desktop widths, each with a visible gold border
+- [ ] Category tiles show an icon above the label, and a hover/focus state
+      that visibly lifts the tile (not just a color change)
+- [ ] The sidebar shows "Explore the Archive" and "About and Contribute"
+      section headings (not MediaWiki's default "Navigation")
+- [ ] Every sidebar link under both new sections goes to a working page
+      (no red links, no 404s)
+- [ ] The sidebar's Search and Tools sections still work exactly as
+      before (unaffected by this redesign)
