@@ -33,25 +33,29 @@
 :root {
 	/* Brand hue/chroma/lightness — drives Citizen's link/accent color AND
 	 * (via shared hue) tints the surface ramp toward warm parchment tones.
-	 * Computed from #5C3A21 (deep espresso brown). */
-	--color-progressive-oklch__h: 56.01;
-	--color-progressive-oklch__c: 0.0614;
-	--color-progressive-oklch__l: 38.28%;
+	 * Computed from #B22222 (TBHF brand Firebrick Red). */
+	--color-progressive-oklch__h: 26.81;
+	--color-progressive-oklch__c: 0.1797;
+	--color-progressive-oklch__l: 49.68%;
 
 	/* Nudge the surface ramp lighter/warmer than Citizen's default so
-	 * surface-0 lands close to #F4EDE1 (parchment) instead of neutral grey. */
+	 * surface-0 lands close to #F4EDE1 (parchment) instead of neutral grey.
+	 * Harmless now that --color-surface-0/1/2 are also set directly below —
+	 * kept for the legacy token pipeline, same as before. */
 	--color-surface-0-oklch__l: 94.8%;
 	--color-surface-0-oklch__c: 0.018;
 
-	/* Accent colors with no equivalent Citizen token — consumed directly by
-	 * our own component CSS (badges, pull-quotes, category tiles). Gold is
-	 * only ever used as a filled background with --bhf-color-text-on-gold on
-	 * top (2.77:1 as text-on-parchment fails AA; 5.07:1 as a filled chip
-	 * with espresso text passes). */
-	--bhf-color-accent-gold: #B8863B;
+	/* TBHF brand accent colors (Firebrick Red / Gold / Dark Green), per
+	 * tbhfdn.org's README-documented design system. Terracotta's former role
+	 * (secondary accent: disputed citations, in-progress leads, the
+	 * contribute-prompt border) merges into Firebrick Red — the real brand
+	 * has one red, not two. Gold is only ever used as a filled background
+	 * with --bhf-color-text-on-gold on top (1.21:1 as text-on-parchment
+	 * fails AA; 11.66:1 as a filled chip with espresso text passes). */
+	--bhf-color-accent-gold: #FFD700;
 	--bhf-color-text-on-gold: #2A1D14;
-	--bhf-color-accent-terracotta: #A8482F;
-	--bhf-color-success: #3B5C40;
+	--bhf-color-accent-terracotta: #B22222;
+	--bhf-color-success: #006400;
 
 	/* Archival typography system — overrides Citizen's default font-family. */
 	--font-family-citizen-serif: 'Source Serif 4', 'Source-Serif-fallback';

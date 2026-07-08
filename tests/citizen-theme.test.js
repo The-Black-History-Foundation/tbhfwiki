@@ -10,9 +10,9 @@ const css = fs.readFileSync(
 );
 
 test('defines the brand hue/chroma/lightness on :root', () => {
-  assert.match(css, /--color-progressive-oklch__h:\s*56\.01/);
-  assert.match(css, /--color-progressive-oklch__c:\s*0\.0614/);
-  assert.match(css, /--color-progressive-oklch__l:\s*38\.28%/);
+  assert.match(css, /--color-progressive-oklch__h:\s*26\.81/);
+  assert.match(css, /--color-progressive-oklch__c:\s*0\.1797/);
+  assert.match(css, /--color-progressive-oklch__l:\s*49\.68%/);
 });
 
 test('tunes the surface ramp toward warm parchment', () => {
@@ -20,10 +20,10 @@ test('tunes the surface ramp toward warm parchment', () => {
   assert.match(css, /--color-surface-0-oklch__c:\s*0\.018/);
 });
 
-test('defines custom accent properties not covered by Citizen tokens', () => {
-  assert.match(css, /--bhf-color-accent-gold:\s*#B8863B/i);
-  assert.match(css, /--bhf-color-accent-terracotta:\s*#A8482F/i);
-  assert.match(css, /--bhf-color-success:\s*#3B5C40/i);
+test('defines custom accent properties matching the TBHF brand', () => {
+  assert.match(css, /--bhf-color-accent-gold:\s*#FFD700/i);
+  assert.match(css, /--bhf-color-accent-terracotta:\s*#B22222/i);
+  assert.match(css, /--bhf-color-success:\s*#006400/i);
 });
 
 test('overrides Citizen font-family variables with the archival type system', () => {
