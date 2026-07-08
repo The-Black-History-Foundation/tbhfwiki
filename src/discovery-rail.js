@@ -26,17 +26,22 @@ function transformRecentChanges(apiResponse) {
 		timestamp: change.timestamp,
 		user: change.user,
 		url: titleToUrl( change.title ),
+		userUrl: titleToUrl( 'User:' + change.user ),
 	} ) );
 }
 
 function renderCard(item) {
+	const userHtml = item.userUrl ?
+		'<a class="bhf-rail-card__user-link" href="' + escapeHtml( item.userUrl ) + '">' + escapeHtml( item.user ) + '</a>' :
+		escapeHtml( item.user );
+
 	return (
-		'<a class="bhf-rail-card" href="' + escapeHtml( item.url ) + '">' +
-		'<span class="bhf-rail-card__title">' + escapeHtml( item.title ) + '</span>' +
-		'<span class="bhf-rail-card__meta">' + escapeHtml( item.user ) +
+		'<div class="bhf-rail-card">' +
+		'<a class="bhf-rail-card__title" href="' + escapeHtml( item.url ) + '">' + escapeHtml( item.title ) + '</a>' +
+		'<span class="bhf-rail-card__meta">' + userHtml +
 			( item.timestamp ? ' &middot; ' + escapeHtml( item.timestamp ) : '' ) +
 		'</span>' +
-		'</a>'
+		'</div>'
 	);
 }
 

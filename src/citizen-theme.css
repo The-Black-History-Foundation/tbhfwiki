@@ -171,7 +171,6 @@
 .bhf-rail-card {
 	display: flex;
 	flex-direction: column;
-	text-decoration: none;
 	padding: 0.5rem;
 	border-radius: 6px;
 	background-color: var( --color-surface-0 );
@@ -184,11 +183,21 @@
 .bhf-rail-card__title {
 	font-weight: 600;
 	color: var( --color-emphasized );
+	text-decoration: none;
+}
+
+.bhf-rail-card__title:hover {
+	text-decoration: underline;
 }
 
 .bhf-rail-card__meta {
 	font-size: 0.8rem;
 	color: var( --color-subtle );
+}
+
+.bhf-rail-card__user-link {
+	color: inherit;
+	text-decoration: underline;
 }
 
 @media ( max-width: 640px ) {

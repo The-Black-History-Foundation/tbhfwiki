@@ -20,12 +20,14 @@ test('transformRecentChanges maps the core API shape to card data', () => {
       timestamp: '2026-07-01T12:00:00Z',
       user: 'TKennedy',
       url: '/wiki/Robert_Renfro',
+      userUrl: '/wiki/User%3ATKennedy',
     },
     {
       title: 'Fort Nashborough',
       timestamp: '2026-06-28T09:30:00Z',
       user: 'Contributor2',
       url: '/wiki/Fort_Nashborough',
+      userUrl: '/wiki/User%3AContributor2',
     },
   ]);
 });
@@ -68,6 +70,36 @@ test('renderCard omits the timestamp separator when timestamp is absent (Trendin
 
   assert.match(html, /class="bhf-rail-card__meta">482 views<\/span>/);
   assert.ok(!html.includes('&middot;'));
+  assert.ok(!html.includes('bhf-rail-card__user-link'));
+});
+
+test('renderCard links the contributor name to their profile when userUrl is present', () => {
+  const html = renderCard({
+    title: 'Robert Renfro',
+    timestamp: '2026-07-01T12:00:00Z',
+    user: 'TKennedy',
+    url: '/wiki/Robert_Renfro',
+    userUrl: '/wiki/User%3ATKennedy',
+  });
+
+  assert.match(html, /<a class="bhf-rail-card__user-link" href="\/wiki\/User%3ATKennedy">TKennedy<\/a>/);
+  assert.match(html, /<div class="bhf-rail-card">/);
+  assert.match(html, /<a class="bhf-rail-card__title" href="\/wiki\/Robert_Renfro">Robert Renfro<\/a>/);
+});
+
+test('renderCard does not produce nested anchors', () => {
+  const html = renderCard({
+    title: 'Robert Renfro',
+    timestamp: '2026-07-01T12:00:00Z',
+    user: 'TKennedy',
+    url: '/wiki/Robert_Renfro',
+    userUrl: '/wiki/User%3ATKennedy',
+  });
+
+  // The card wrapper must be a <div>, never an <a> — otherwise the
+  // .bhf-rail-card__title and .bhf-rail-card__user-link anchors inside it
+  // would be invalid nested <a> tags.
+  assert.ok(!/^<a class="bhf-rail-card"/.test(html));
 });
 
 test('renderCard escapes HTML in titles and usernames to prevent injection', () => {
