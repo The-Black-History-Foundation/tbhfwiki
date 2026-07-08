@@ -22,6 +22,14 @@
 </div>
 </div>
 
+<div class="bhf-mission-band">
+<span class="bhf-mission-band__eyebrow">Why This Archive Exists</span>
+<div class="bhf-mission-band__text">
+In 1860, the community of Africatown told the story of the ''Clotilda'' for over a century before the outside world caught up. This archive exists to close that gap — to give community accounts, family memory, and oral history a place to be documented, discussed, and recognized, on their way to being proven.
+</div>
+[[About This Wiki|Read our full story →]]
+</div>
+
 <div id="bhf-discovery-rail"></div>
 <!-- populated client-side by discovery-rail.bootstrap.js, see Task 5-7 -->
 

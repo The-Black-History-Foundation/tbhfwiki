@@ -292,3 +292,9 @@ test('the hero banner search form targets real Special:Search', () => {
   assert.match(mainPage, /<input type="hidden" name="title" value="Special:Search">/);
   assert.match(mainPage, /<form action="\/index\.php" method="get"/);
 });
+
+test('defines the mission band with a distinct surface from the parchment page background', () => {
+  const block = css.match(/\.bhf-mission-band\s*{[^}]*}/s)[0];
+  assert.match(block, /background-color:\s*var\(\s*--color-surface-2\s*\)/);
+  assert.match(block, /margin-block:\s*var\(\s*--bhf-homepage-section-spacing\s*\)/);
+});

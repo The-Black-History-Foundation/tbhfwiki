@@ -728,3 +728,30 @@
 	margin-bottom: 1rem;
 	font-weight: 600;
 }
+
+.bhf-mission-band {
+	background-color: var( --color-surface-2 );
+	border-radius: 8px;
+	padding: 2rem;
+	margin-block: var( --bhf-homepage-section-spacing );
+	text-align: center;
+}
+
+.bhf-mission-band__eyebrow {
+	display: block;
+	font-family: var( --font-family-citizen-base );
+	font-size: var( --bhf-eyebrow-font-size );
+	letter-spacing: var( --bhf-eyebrow-letter-spacing );
+	text-transform: uppercase;
+	color: var( --bhf-color-accent-terracotta );
+	font-weight: 700;
+	margin-bottom: 0.75rem;
+}
+
+.bhf-mission-band__text {
+	max-width: 640px;
+	margin-inline: auto;
+	font-family: var( --font-family-citizen-serif );
+	font-size: 1.1rem;
+	line-height: 1.6;
+}
