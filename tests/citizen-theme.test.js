@@ -26,19 +26,36 @@ test('defines custom accent properties matching the TBHF brand', () => {
   assert.match(css, /--bhf-color-success:\s*#006400/i);
 });
 
-test('overrides Citizen font-family variables with the archival type system', () => {
-  assert.match(css, /--font-family-citizen-serif:\s*'Source Serif 4',\s*'Source-Serif-fallback'/);
-  assert.match(css, /--font-family-citizen-base:\s*'Source Sans 3',\s*'Source-Sans-fallback'/);
+test('overrides Citizen font-family variables with the TBHF brand fonts', () => {
+  assert.match(css, /--font-family-citizen-serif:\s*'TBHF-NeueKabel',\s*Helvetica,\s*Arial,\s*sans-serif/);
+  assert.match(css, /--font-family-citizen-base:\s*'TBHF-Helvetica',\s*Helvetica,\s*Arial,\s*sans-serif/);
 });
 
-test('imports the chosen Google Fonts with a full weight range', () => {
-  assert.match(css, /fonts\.googleapis\.com\/css2\?family=Source\+Serif\+4/);
-  assert.match(css, /fonts\.googleapis\.com\/css2\?family=Source\+Sans\+3/);
+test('defines self-hosted @font-face rules for all five required weights/styles', () => {
+  assert.match(
+    css,
+    /@font-face\s*{\s*font-family:\s*'TBHF-Helvetica';\s*src:\s*url\(\s*'\/wiki\/Special:Redirect\/file\/Helvetica\.ttf'\s*\)[^}]*font-weight:\s*400;\s*font-style:\s*normal;/
+  );
+  assert.match(
+    css,
+    /url\(\s*'\/wiki\/Special:Redirect\/file\/Helvetica-Bold\.ttf'\s*\)[^}]*font-weight:\s*700;/
+  );
+  assert.match(
+    css,
+    /url\(\s*'\/wiki\/Special:Redirect\/file\/Helvetica-Oblique\.ttf'\s*\)[^}]*font-style:\s*italic;/
+  );
+  assert.match(
+    css,
+    /font-family:\s*'TBHF-NeueKabel';\s*src:\s*url\(\s*'\/wiki\/Special:Redirect\/file\/NeueKabel-Book\.otf'\s*\)/
+  );
+  assert.match(
+    css,
+    /url\(\s*'\/wiki\/Special:Redirect\/file\/NeueKabel-Bold\.otf'\s*\)[^}]*font-weight:\s*700;/
+  );
 });
 
-test('ships a metric-matched fallback face to avoid font-flicker layout shift', () => {
-  assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Sans-fallback'/);
-  assert.match(css, /@font-face\s*{\s*font-family:\s*'Source-Serif-fallback'/);
+test('no longer imports Google Fonts', () => {
+  assert.ok(!css.includes('fonts.googleapis.com'));
 });
 
 test('gates the paper-grain texture behind performance-mode-off', () => {
