@@ -8,8 +8,9 @@ templates. **No forked skin package, no core MediaWiki changes.**
 
 ## Features
 
-- **Heritage Archival theme** — a warm parchment/gold/terracotta palette,
-  archival typography, a homepage with a "discovery rail" (Recently Added +
+- **Base theme** — a warm parchment background with the TBHF brand's
+  Firebrick Red / Gold / Dark Green accents and Helvetica/Neue Kabel
+  typography, a homepage with a "discovery rail" (Recently Added +
   Trending articles), and article components (infoboxes, pull-quotes,
   breadcrumbs, contribute prompts).
 - **Source-citation tooling** — a `{{Citation}}` template with source types

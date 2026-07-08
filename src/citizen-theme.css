@@ -1,6 +1,9 @@
 /* src/citizen-theme.css
  * Paste this entire file's contents into MediaWiki:Citizen.css on the wiki.
- * "Heritage Archival" palette — see docs/superpowers/specs/2026-07-06-black-history-wiki-skin-design.md
+ * Parchment surface treatment — see docs/superpowers/specs/2026-07-06-black-history-wiki-skin-design.md
+ * Accent colors and typography — see docs/superpowers/specs/2026-07-08-tbhf-brand-retheme-design.md
+ * (the TBHF brand re-theme superseded that first spec's "Heritage Archival"
+ * accent/font choices; the parchment background treatment is unchanged)
  */
 
 /* TBHF brand fonts (Helvetica + Neue Kabel), self-hosted on the wiki as

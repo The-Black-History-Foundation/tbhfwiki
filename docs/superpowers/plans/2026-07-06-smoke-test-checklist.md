@@ -1,8 +1,10 @@
 # Smoke test checklist
 
 - [ ] Main Page loads with parchment background and paper-grain texture visible
-- [ ] Headings render in Source Serif 4, body text in Source Sans 3, no visible
-      font-flicker/layout shift on load
+- [ ] Headings render in Neue Kabel, body text in Helvetica, no visible
+      font-flicker/layout shift on load (superseded by the TBHF brand
+      re-theme — see the "Required asset uploads" section below; no longer
+      Source Serif 4 / Source Sans 3)
 - [ ] Category tiles show espresso text on a gold background (not gold text)
 - [ ] Discovery rail's "Recently Added" column populates with the test articles
 - [ ] Discovery rail's "Trending" column is HIDDEN (PageViewInfo is not installed
