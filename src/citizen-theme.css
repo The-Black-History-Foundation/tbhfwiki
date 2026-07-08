@@ -480,3 +480,90 @@
 	color: var( --color-subtle );
 	margin-bottom: 0.15rem;
 }
+
+.bhf-lead {
+	background-color: var( --color-surface-1 );
+	border: 1px solid var( --border-color-base );
+	border-radius: 8px;
+	padding: 1rem 1.25rem;
+	margin-bottom: 1.5rem;
+}
+
+.bhf-lead__summary {
+	margin-bottom: 0.5rem;
+}
+
+.bhf-lead__known {
+	font-size: 0.9rem;
+	color: var( --color-subtle );
+	margin-bottom: 0.5rem;
+}
+
+.bhf-lead__needs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-bottom: 0.5rem;
+}
+
+.bhf-lead__need-tag {
+	display: inline-block;
+	font-size: 0.75rem;
+	color: var( --color-subtle );
+	border: 1px solid var( --border-color-base );
+	border-radius: 999px;
+	padding: 0.1rem 0.55rem;
+}
+
+.bhf-lead__need-tag--archival::before {
+	content: "Archival Access";
+}
+
+.bhf-lead__need-tag--translation::before {
+	content: "Translation";
+}
+
+.bhf-lead__need-tag--fieldwork::before {
+	content: "Fieldwork";
+}
+
+.bhf-lead__need-tag--funding::before {
+	content: "Funding";
+}
+
+.bhf-lead__need-tag--expertise::before {
+	content: "Expertise";
+}
+
+.bhf-lead__need-tag--digitization::before {
+	content: "Digitization";
+}
+
+.bhf-lead__status {
+	display: inline-block;
+	border-radius: 999px;
+	padding: 0.15rem 0.6rem;
+	font-size: 0.75rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.bhf-lead__status--open {
+	background-color: var( --bhf-color-accent-gold );
+	color: var( --bhf-color-text-on-gold );
+}
+
+.bhf-lead__status--in-progress {
+	background-color: var( --bhf-color-accent-terracotta );
+	color: var( --color-surface-0 );
+}
+
+.bhf-lead__status--resolved {
+	background-color: var( --bhf-color-success );
+	color: var( --color-surface-0 );
+}
+
+.bhf-lead__discuss {
+	display: block;
+	font-size: 0.85rem;
+}

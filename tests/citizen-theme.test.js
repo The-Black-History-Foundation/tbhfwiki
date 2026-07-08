@@ -191,3 +191,37 @@ test('profile tags use established border/text tokens, not new colors', () => {
   assert.match(block, /color:\s*var\(\s*--color-subtle\s*\)/);
   assert.match(block, /border:.*var\(\s*--border-color-base\s*\)/);
 });
+
+test('defines the lead card shell, need-tag variants, and status badge variants', () => {
+  for (const cls of [
+    '.bhf-lead', '.bhf-lead__summary', '.bhf-lead__known', '.bhf-lead__needs',
+    '.bhf-lead__need-tag',
+    '.bhf-lead__need-tag--archival', '.bhf-lead__need-tag--translation',
+    '.bhf-lead__need-tag--fieldwork', '.bhf-lead__need-tag--funding',
+    '.bhf-lead__need-tag--expertise', '.bhf-lead__need-tag--digitization',
+    '.bhf-lead__status',
+    '.bhf-lead__status--open', '.bhf-lead__status--in-progress', '.bhf-lead__status--resolved',
+    '.bhf-lead__discuss'
+  ]) {
+    assert.ok(css.includes(cls), `expected ${cls} to be defined`);
+  }
+});
+
+test('need-tag variants set a distinct label via ::before content', () => {
+  assert.match(css, /\.bhf-lead__need-tag--archival::before\s*{\s*content:\s*"Archival Access"/);
+  assert.match(css, /\.bhf-lead__need-tag--digitization::before\s*{\s*content:\s*"Digitization"/);
+});
+
+test('status badges use the established gold-fill/terracotta-fill/green-fill contrast pattern', () => {
+  const openBlock = css.match(/\.bhf-lead__status--open\s*{[^}]*}/s)[0];
+  assert.match(openBlock, /background-color:\s*var\(\s*--bhf-color-accent-gold\s*\)/);
+  assert.match(openBlock, /color:\s*var\(\s*--bhf-color-text-on-gold\s*\)/);
+
+  const inProgressBlock = css.match(/\.bhf-lead__status--in-progress\s*{[^}]*}/s)[0];
+  assert.match(inProgressBlock, /background-color:\s*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+  assert.match(inProgressBlock, /color:\s*var\(\s*--color-surface-0\s*\)/);
+
+  const resolvedBlock = css.match(/\.bhf-lead__status--resolved\s*{[^}]*}/s)[0];
+  assert.match(resolvedBlock, /background-color:\s*var\(\s*--bhf-color-success\s*\)/);
+  assert.match(resolvedBlock, /color:\s*var\(\s*--color-surface-0\s*\)/);
+});
