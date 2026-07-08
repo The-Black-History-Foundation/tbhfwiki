@@ -70,7 +70,7 @@ test('paper-grain texture is a low-opacity SVG noise background', () => {
 });
 
 test('defines homepage layout classes', () => {
-  for (const cls of ['.bhf-masthead', '.bhf-hero', '.bhf-category-strip', '.bhf-category-tile']) {
+  for (const cls of ['.bhf-masthead', '.bhf-hero-banner', '.bhf-category-strip', '.bhf-category-tile']) {
     assert.ok(css.includes(cls), `expected ${cls} to be defined`);
   }
 });
