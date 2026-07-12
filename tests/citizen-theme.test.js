@@ -161,29 +161,23 @@ test('defines the pull-quote attribution styling', () => {
   assert.ok(css.includes('.bhf-pullquote__attribution'));
 });
 
-test('defines the citation card shell and all six type variants', () => {
+test('defines the evidence entry card shell and reliability tag variants', () => {
   for (const cls of [
-    '.bhf-citation', '.bhf-citation--archival', '.bhf-citation--newspaper',
-    '.bhf-citation--book', '.bhf-citation--oral-history', '.bhf-citation--record',
-    '.bhf-citation--photo'
+    '.bhf-evidence-entry', '.bhf-evidence-entry__title', '.bhf-evidence-entry__meta',
+    '.bhf-evidence-entry__reliability', '.bhf-evidence-entry__citation'
   ]) {
     assert.ok(css.includes(cls), `expected ${cls} to be defined`);
   }
 });
 
-test('citation type variants set a distinct label via ::before content', () => {
-  assert.match(css, /\.bhf-citation--archival \.bhf-citation__type::before\s*{\s*content:\s*"Archival Document"/);
-  assert.match(css, /\.bhf-citation--oral-history \.bhf-citation__type::before\s*{\s*content:\s*"Oral History"/);
-});
-
-test('confidence tags use the established palette tokens, not new colors', () => {
-  const verifiedBlock = css.match(/\.bhf-citation__confidence--verified\s*{[^}]*}/s)[0];
+test('evidence reliability tags use the established palette tokens, not new colors', () => {
+  const verifiedBlock = css.match(/\.bhf-evidence-entry__reliability--verified\s*{[^}]*}/s)[0];
   assert.match(verifiedBlock, /color:\s*var\(\s*--bhf-color-success\s*\)/);
 
-  const singleSourceBlock = css.match(/\.bhf-citation__confidence--single-source\s*{[^}]*}/s)[0];
+  const singleSourceBlock = css.match(/\.bhf-evidence-entry__reliability--single-source\s*{[^}]*}/s)[0];
   assert.match(singleSourceBlock, /color:\s*var\(\s*--color-subtle\s*\)/);
 
-  const disputedBlock = css.match(/\.bhf-citation__confidence--disputed\s*{[^}]*}/s)[0];
+  const disputedBlock = css.match(/\.bhf-evidence-entry__reliability--disputed\s*{[^}]*}/s)[0];
   assert.match(disputedBlock, /color:\s*var\(\s*--bhf-color-accent-terracotta\s*\)/);
 });
 

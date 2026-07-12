@@ -1,0 +1,24 @@
+<!-- src/templates/Evidence.wikitext — paste as Template:Evidence
+    Usage: {{Evidence|title=...|type=...|date=...|repository=...
+    |reliability=...|citation=...}}
+    Required: title, type, reliability
+    type must be one of: Primary Documents, Government Records,
+    Land Records, Military Records, Maps, Letters, Newspapers, Books,
+    Academic Papers, Oral Histories, DNA Studies, Archaeology
+    reliability must be one of: verified, single-source, disputed
+    Optional: date, repository, citation (a formatted reference string,
+    e.g. "Smith, J. (1830). Deed Book 12, p. 45."), scanUrl (reserved for
+    future digital-scan support — accepted but not yet rendered anywhere) -->
+<div class="bhf-evidence-entry"
+     data-evidence-title="{{{title}}}"
+     data-evidence-type="{{{type}}}"
+     data-evidence-date="{{{date|}}}"
+     data-evidence-repository="{{{repository|}}}"
+     data-evidence-reliability="{{{reliability}}}"
+     data-evidence-citation="{{{citation|}}}">
+<span class="bhf-evidence-entry__title">{{{title}}}</span>
+<span class="bhf-evidence-entry__meta">{{{type}}}{{#if:{{{date|}}}| &middot; {{{date}}}}}{{#if:{{{repository|}}}| &middot; {{{repository}}}}}</span>
+<span class="bhf-evidence-entry__reliability bhf-evidence-entry__reliability--{{{reliability}}}">{{#switch:{{{reliability}}}|verified=Verified|single-source=Single source|disputed=Disputed|#default={{{reliability}}}}}</span>
+{{#if:{{{citation|}}}|<div class="bhf-evidence-entry__citation">{{{citation}}}</div>}}
+</div>
+<includeonly>[[Category:Evidence]]</includeonly>
