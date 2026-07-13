@@ -3,8 +3,8 @@ const assert = require('node:assert/strict');
 const {
   countDistinctArticles,
   lastActiveDate,
-  countCitationTemplateUsages,
-  sumCitationCounts,
+  countEvidenceTemplateUsages,
+  sumEvidenceCounts,
 } = require('../src/contributor-stats.js');
 
 test('countDistinctArticles dedupes by title', () => {
@@ -33,33 +33,33 @@ test('lastActiveDate returns null for an empty list', () => {
   assert.equal(lastActiveDate([]), null);
 });
 
-test('countCitationTemplateUsages counts {{Citation instances in wikitext', () => {
-  const wikitext = '== Sources ==\n{{Citation|title=A|type=book|confidence=verified}}\n{{Citation|title=B|type=archival|confidence=single-source}}';
-  assert.equal(countCitationTemplateUsages(wikitext), 2);
+test('countEvidenceTemplateUsages counts {{Evidence instances in wikitext', () => {
+  const wikitext = '== Sources ==\n{{Evidence|title=A|type=Books|reliability=verified}}\n{{Evidence|title=B|type=Primary Documents|reliability=single-source}}';
+  assert.equal(countEvidenceTemplateUsages(wikitext), 2);
 });
 
-test('countCitationTemplateUsages returns 0 when there are no citations', () => {
-  assert.equal(countCitationTemplateUsages('Just some prose with no sources.'), 0);
+test('countEvidenceTemplateUsages returns 0 when there are no evidence entries', () => {
+  assert.equal(countEvidenceTemplateUsages('Just some prose with no sources.'), 0);
 });
 
-test('countCitationTemplateUsages is case-insensitive on the template name', () => {
+test('countEvidenceTemplateUsages is case-insensitive on the template name', () => {
   assert.equal(
-    countCitationTemplateUsages('{{citation|title=A|type=book|confidence=verified}}'),
+    countEvidenceTemplateUsages('{{evidence|title=A|type=Books|reliability=verified}}'),
     1
   );
 });
 
-test('countCitationTemplateUsages counts a citation with whitespace before the first pipe', () => {
+test('countEvidenceTemplateUsages counts an entry with whitespace before the first pipe', () => {
   assert.equal(
-    countCitationTemplateUsages('{{Citation |title=A|type=book|confidence=verified}}'),
+    countEvidenceTemplateUsages('{{Evidence |title=A|type=Books|reliability=verified}}'),
     1
   );
 });
 
-test('sumCitationCounts sums an array of per-page counts', () => {
-  assert.equal(sumCitationCounts([2, 0, 5, 1]), 8);
+test('sumEvidenceCounts sums an array of per-page counts', () => {
+  assert.equal(sumEvidenceCounts([2, 0, 5, 1]), 8);
 });
 
-test('sumCitationCounts returns 0 for an empty array', () => {
-  assert.equal(sumCitationCounts([]), 0);
+test('sumEvidenceCounts returns 0 for an empty array', () => {
+  assert.equal(sumEvidenceCounts([]), 0);
 });

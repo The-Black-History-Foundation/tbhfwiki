@@ -21,7 +21,7 @@ templates. **No forked skin package, no core MediaWiki changes.**
   content (never a manual flag).
 - **Contributor profiles** — a bio/research-interests card on a contributor's
   own `User:` page, with automatically-computed stats (articles edited,
-  citations added, last active).
+  evidence entries added, last active).
 - **Research leads board** — a `{{ResearchLead}}` template for community
   accounts that need help to advance (archival access, translation,
   fieldwork, funding, expertise, digitization), and a browsable board

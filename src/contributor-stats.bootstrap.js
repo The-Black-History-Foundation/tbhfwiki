@@ -66,14 +66,14 @@
 					var revision = page.revisions && page.revisions[ 0 ];
 					var content = revision && revision.slots && revision.slots.main &&
 						revision.slots.main[ '*' ];
-					return content ? countCitationTemplateUsages( content ) : 0;
+					return content ? countEvidenceTemplateUsages( content ) : 0;
 				} );
-				var citationCount = sumCitationCounts( perPageCounts );
+				var evidenceCount = sumEvidenceCounts( perPageCounts );
 
 				mount.textContent = articleCount + ' distinct article' +
 					( articleCount === 1 ? '' : 's' ) + ' among your last ' +
 					contributions.length + ' edit' + ( contributions.length === 1 ? '' : 's' ) +
-					' · ' + citationCount + ' citations across your ' + distinctTitles.length +
+					' · ' + evidenceCount + ' evidence entries across your ' + distinctTitles.length +
 					' most recently edited articles · last active ' + lastActive;
 			} ).fail( function ( code, errorData ) {
 				mw.log.warn( 'bhf-contributor-stats: revisions query failed', code, errorData );
