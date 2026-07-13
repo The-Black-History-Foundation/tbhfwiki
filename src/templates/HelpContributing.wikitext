@@ -20,12 +20,14 @@ Use the '''edit''' link at the top of any page. New articles should
 include an infobox, a breadcrumb, and — wherever possible — sources under
 a "Sources" heading, so readers can see how solid the ground is.
 
-=== Cite your sources ===
+=== Cite your evidence ===
 
-Every claim is stronger with a source behind it. Use
-{{Citation|title=...}} to add one, tagging its type and how confident you
-are in it (verified, single source, or disputed) — even a single-source or
-disputed account is worth recording.
+Every claim is stronger with evidence behind it. Use
+{{Evidence|title=...|type=...|reliability=...}} to add a source, tagging
+what kind of evidence it is (a document, a newspaper, an oral history,
+DNA or archaeological findings, and more) and how confident you are in it
+(verified, single source, or disputed) — even a single-source or disputed
+account is worth recording.
 
 === Post a research lead ===
 

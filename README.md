@@ -111,7 +111,7 @@ No `package.json`, no npm install — uses Node's built-in test runner (Node
 24+):
 
 ```
-node --test tests/citizen-theme.test.js tests/discovery-rail.test.js tests/config.test.js tests/citation-badges.test.js tests/contributor-stats.test.js tests/research-leads.test.js
+node --test tests/citizen-theme.test.js tests/discovery-rail.test.js tests/config.test.js tests/citation-badges.test.js tests/contributor-stats.test.js tests/research-leads.test.js tests/evidence-panel.test.js
 ```
 
 (Passing just `tests/` as a directory doesn't work reliably on Windows — list
@@ -121,8 +121,10 @@ the files explicitly, as above.)
 
 Every feature through the homepage redesign has been deployed to and
 verified against a real running MediaWiki + Citizen instance (MediaWiki
-1.43.9, SQLite backend) — not just unit-tested. `docker-compose.yml` brings
-up an equivalent local stack for anyone reproducing this; see
+1.43.9, SQLite backend) — not just unit-tested. `docker-compose.yml`
+brings up a local MediaWiki + Citizen stack for anyone reproducing this
+(on MariaDB, not SQLite — either backend works, this repo's own
+verification just happened to use SQLite); see
 `docs/superpowers/plans/2026-07-06-smoke-test-checklist.md` for the full
 manual verification checklist. New features (like this one) should still be
 walked through that checklist before being considered done.
