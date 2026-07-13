@@ -84,3 +84,30 @@ terms.
 
 If you have questions about these Terms of Use, please contact us through
 [https://www.tbhfdn.org/contact our contact page].
+
+== 10. AI Model Training Consent ==
+
+Some contributions to this wiki may, in the future, help train an AI
+model built specifically on community voice and research — distinct from
+the general-purpose corpora most AI models are trained on. This is
+separate from the [[Terms of Use#2. Contributing to This Wiki|CC BY-SA
+license]] covering general reuse of your contribution.
+
+Setting a `{{Evidence}}` or `{{ResearchLead}}` entry's `aiConsent` field to
+"yes" means:
+
+* You agree this specific contribution may be used to train such a model.
+* You affirm you have the right to grant this permission on behalf of
+  anyone whose voice, account, or story is recorded in it — not only your
+  own words. If your contribution is someone else's oral history,
+  transcribed by you, this consent should reflect their agreement, not
+  only yours.
+* You understand that once a model has actually been trained using your
+  contribution, withdrawing consent afterward cannot remove that
+  contribution's influence from an already-trained model. Consent can
+  only be meaningfully withdrawn before any such training has occurred.
+
+Leaving `aiConsent` unset, or set to anything other than "yes", means your
+contribution will not be used for this purpose. Your contribution is fully
+welcome either way — this consent is entirely separate from your ability
+to contribute to and be credited on this wiki.
