@@ -343,3 +343,8 @@ test('defines the evidence panel shell, summary, category, and subcategory headi
   const panelBlock = css.match(/\.bhf-evidence-panel\s*{[^}]*}/s)[0];
   assert.match(panelBlock, /border:.*var\(\s*--bhf-color-accent-gold\s*\)/);
 });
+
+test('defines the on-chain verification badge using the primary brand accent, distinct from the reliability-verified color', () => {
+  const block = css.match(/\.bhf-evidence-entry__chain-badge\s*{[^}]*}/s)[0];
+  assert.match(block, /background-color:\s*var\(\s*--bhf-color-accent-primary\s*\)/);
+});

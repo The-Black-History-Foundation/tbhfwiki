@@ -529,6 +529,19 @@
 	margin-top: 0.3rem;
 }
 
+.bhf-evidence-entry__chain-badge {
+	display: inline-block;
+	background-color: var( --bhf-color-accent-primary );
+	color: var( --color-surface-0 );
+	font-size: 0.7rem;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 0.15rem 0.6rem;
+	border-radius: 999px;
+	margin-top: 0.3rem;
+	margin-left: 0.4rem;
+}
+
 .bhf-badge--reviewed {
 	display: inline-block;
 	background-color: var( --bhf-color-success );

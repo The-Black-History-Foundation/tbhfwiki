@@ -8,17 +8,30 @@
     reliability must be one of: verified, single-source, disputed
     Optional: date, repository, citation (a formatted reference string,
     e.g. "Smith, J. (1830). Deed Book 12, p. 45."), scanUrl (reserved for
-    future digital-scan support — accepted but not yet rendered anywhere) -->
+    future digital-scan support — accepted but not yet rendered anywhere).
+    Optional chain-verification fields, all inert unless
+    chainStatus=anchored (in which case an "On-Chain Verified" badge
+    renders): chainStatus (none|pending|anchored), daoProposalId, ipfsCid,
+    chainNetwork (e.g. "Paseo"), chainTxHash, chainVerifiedDate. Anchoring
+    is intended for verified/single-source evidence, not disputed — not
+    technically enforced, just the intended use. -->
 <div class="bhf-evidence-entry"
      data-evidence-title="{{{title}}}"
      data-evidence-type="{{{type}}}"
      data-evidence-date="{{{date|}}}"
      data-evidence-repository="{{{repository|}}}"
      data-evidence-reliability="{{{reliability}}}"
-     data-evidence-citation="{{{citation|}}}">
+     data-evidence-citation="{{{citation|}}}"
+     data-evidence-chain-status="{{{chainStatus|}}}"
+     data-evidence-dao-proposal-id="{{{daoProposalId|}}}"
+     data-evidence-ipfs-cid="{{{ipfsCid|}}}"
+     data-evidence-chain-network="{{{chainNetwork|}}}"
+     data-evidence-chain-tx-hash="{{{chainTxHash|}}}"
+     data-evidence-chain-verified-date="{{{chainVerifiedDate|}}}">
 <span class="bhf-evidence-entry__title">{{{title}}}</span>
 <span class="bhf-evidence-entry__meta">{{{type}}}{{#if:{{{date|}}}| &middot; {{{date}}}}}{{#if:{{{repository|}}}| &middot; {{{repository}}}}}</span>
 <span class="bhf-evidence-entry__reliability bhf-evidence-entry__reliability--{{{reliability}}}">{{#switch:{{{reliability}}}|verified=Verified|single-source=Single source|disputed=Disputed|#default={{{reliability}}}}}</span>
+{{#ifeq:{{{chainStatus|}}}|anchored|<a class="bhf-evidence-entry__chain-badge" href="https://{{{chainNetwork}}}.subscan.io/extrinsic/{{{chainTxHash}}}">⛓ On-Chain Verified →</a>|}}
 {{#if:{{{citation|}}}|<div class="bhf-evidence-entry__citation">{{{citation}}}</div>}}
 </div>
 <includeonly>[[Category:Evidence]]</includeonly>
