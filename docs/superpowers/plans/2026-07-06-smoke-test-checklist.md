@@ -140,3 +140,31 @@ without any of the font/logo files above.
       (no red links, no 404s)
 - [ ] The sidebar's Search and Tools sections still work exactly as
       before (unaffected by this redesign)
+
+## Evidence Explorer
+
+- [ ] A page with `{{Evidence}}` entries in multiple categories —
+      including at least one entry typed directly `Primary Documents` and
+      at least one entry typed `Government Records` — shows a single
+      collapsible "Evidence (N sources)" panel with `Primary Documents`
+      first (its direct entries, then its `Government Records` subheading),
+      followed by any standalone categories present
+- [ ] Categories and subcategories with zero entries do not appear as empty
+      headings anywhere in the panel
+- [ ] With JavaScript disabled, the plain `{{Evidence}}` entries remain
+      visible inline, ungrouped, exactly where the editor placed them — no
+      panel appears
+- [ ] With JavaScript enabled, each source appears exactly once (inside the
+      panel) — the original inline entries are hidden, not also visible
+- [ ] The panel's `<summary>` toggle opens and closes the panel with no
+      JavaScript required for that specific interaction
+- [ ] A page with zero `{{Evidence}}` entries shows no panel at all
+- [ ] The "Sources cited" gold badge still appears automatically on any
+      page with at least one `{{Evidence}}` entry, and the "Reviewer
+      confirmed" green badge still appears independently from
+      `[[Category:Reviewed]]` — both badges work exactly as they did before
+      this feature
+- [ ] Viewing `Template:Evidence` directly does NOT add it to
+      `Category:Evidence` (confirms the `<includeonly>` wrapper is intact)
+- [ ] Browser console shows no JS errors on an article with an Evidence
+      panel

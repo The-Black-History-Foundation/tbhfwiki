@@ -1,14 +1,14 @@
 // tests/citation-badges.test.js
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { countCitations, hasReviewedCategory } = require('../src/citation-badges.js');
+const { countEvidenceEntries, hasReviewedCategory } = require('../src/citation-badges.js');
 
-test('countCitations returns the number of citation elements', () => {
-  assert.equal(countCitations([{}, {}, {}]), 3);
+test('countEvidenceEntries returns the number of evidence elements', () => {
+  assert.equal(countEvidenceEntries([{}, {}, {}]), 3);
 });
 
-test('countCitations returns 0 for an empty list', () => {
-  assert.equal(countCitations([]), 0);
+test('countEvidenceEntries returns 0 for an empty list', () => {
+  assert.equal(countEvidenceEntries([]), 0);
 });
 
 test('hasReviewedCategory returns true when a title contains Category:Reviewed', () => {

@@ -12,12 +12,15 @@ templates. **No forked skin package, no core MediaWiki changes.**
   (Ocean Blue / Gold / Sea Green on clean white backgrounds), a homepage with a
   "discovery rail" (Recently Added + Trending articles), and article components
   (infoboxes, pull-quotes, breadcrumbs, contribute prompts).
-- **Source-citation tooling** — a `{{Citation}}` template with source types
-  and confidence ratings, plus automatic "Sources cited" and "Reviewer
-  confirmed" badges computed from real page content (never a manual flag).
+- **Evidence Explorer** — a `{{Evidence}}` template organizing sources into
+  a 12-category taxonomy (Primary Documents and its five sub-types, plus
+  Newspapers, Books, Academic Papers, Oral Histories, DNA Studies, and
+  Archaeology), rendered as a collapsible per-article panel, plus automatic
+  "Sources cited" and "Reviewer confirmed" badges computed from real page
+  content (never a manual flag).
 - **Contributor profiles** — a bio/research-interests card on a contributor's
   own `User:` page, with automatically-computed stats (articles edited,
-  citations added, last active).
+  evidence entries added, last active).
 - **Research leads board** — a `{{ResearchLead}}` template for community
   accounts that need help to advance (archival access, translation,
   fieldwork, funding, expertise, digitization), and a browsable board
@@ -54,6 +57,7 @@ Manual deploy (if not using `scripts/deploy-theme.mjs`):
    different features doesn't matter, but within a feature the pure module
    must come before its bootstrap):
    - `src/discovery-rail.js` then `src/discovery-rail.bootstrap.js`
+   - `src/evidence-panel.js` then `src/evidence-panel.bootstrap.js`
    - `src/citation-badges.js` then `src/citation-badges.bootstrap.js`
    - `src/contributor-stats.js` then `src/contributor-stats.bootstrap.js`
    - `src/research-leads.js` then `src/research-leads.bootstrap.js`
@@ -82,7 +86,7 @@ Manual deploy (if not using `scripts/deploy-theme.mjs`):
 | `RelatedPages.wikitext` | `Template:RelatedPages` |
 | `Quote.wikitext` | `Template:Quote` |
 | `ContributeFooter.wikitext` | `Template:ContributeFooter` |
-| `Citation.wikitext` | `Template:Citation` |
+| `Evidence.wikitext` | `Template:Evidence` |
 | `ContributorProfile.wikitext` | `Template:ContributorProfile` |
 | `ResearchLead.wikitext` | `Template:ResearchLead` |
 | `LeadsBoard.wikitext` | Any page you link from navigation (e.g. "Research Leads") |
@@ -120,7 +124,7 @@ No `package.json`, no npm install — uses Node's built-in test runner (Node
 24+):
 
 ```
-node --test tests/citizen-theme.test.js tests/discovery-rail.test.js tests/config.test.js tests/citation-badges.test.js tests/contributor-stats.test.js tests/research-leads.test.js
+node --test tests/citizen-theme.test.js tests/discovery-rail.test.js tests/config.test.js tests/citation-badges.test.js tests/contributor-stats.test.js tests/research-leads.test.js tests/evidence-panel.test.js
 ```
 
 (Passing just `tests/` as a directory doesn't work reliably on Windows — list
@@ -128,9 +132,12 @@ the files explicitly, as above.)
 
 ## Verifying on a live wiki
 
-This project was built without a live MediaWiki instance available (no
-Docker in the build environment), so none of it has been visually verified
-in a browser yet. `docker-compose.yml` brings up a local MediaWiki + Citizen
-stack for exactly that purpose — see
+Every feature through the homepage redesign has been deployed to and
+verified against a real running MediaWiki + Citizen instance (MediaWiki
+1.43.9, SQLite backend) — not just unit-tested. `docker-compose.yml`
+brings up a local MediaWiki + Citizen stack for anyone reproducing this
+(on MariaDB, not SQLite — either backend works, this repo's own
+verification just happened to use SQLite); see
 `docs/superpowers/plans/2026-07-06-smoke-test-checklist.md` for the full
-manual verification checklist to run through once it's up.
+manual verification checklist. New features (like this one) should still be
+walked through that checklist before being considered done.

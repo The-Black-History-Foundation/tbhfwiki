@@ -5,8 +5,8 @@
 // citation-badges.bootstrap.js for the DOM wiring. Kept separate so this file
 // is unit-testable with plain Node, mirroring discovery-rail.js's split.
 
-function countCitations(citationElements) {
-	return citationElements.length;
+function countEvidenceEntries(evidenceElements) {
+	return evidenceElements.length;
 }
 
 function hasReviewedCategory(categoryLinkTitles) {
@@ -33,5 +33,5 @@ function buildBadgeHtml( state ) {
 // browser script where `module` does not exist) without throwing a
 // ReferenceError, while still being require()-able from Node tests.
 if ( typeof module !== 'undefined' ) {
-	module.exports = { countCitations, hasReviewedCategory, buildBadgeHtml };
+	module.exports = { countEvidenceEntries, hasReviewedCategory, buildBadgeHtml };
 }

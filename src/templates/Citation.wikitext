@@ -1,9 +1,0 @@
-<!-- src/templates/Citation.wikitext — paste as Template:Citation
-    Usage: {{Citation|title=Deed of manumission|type=archival|date=1779|location=Davidson County Register's Office|confidence=verified}}
-    Required: title, type (archival|newspaper|book|oral-history|record|photo), confidence (verified|single-source|disputed)
-    Optional: author, publication, date, location -->
-<div class="bhf-citation bhf-citation--{{{type}}}" data-confidence="{{{confidence}}}">
-<span class="bhf-citation__type"></span><span class="bhf-citation__title">{{{title}}}</span>{{#if:{{{author|}}}| — {{{author}}}}}
-<span class="bhf-citation__meta">{{{publication|}}}{{#if:{{{date|}}}| &middot; {{{date}}}}}{{#if:{{{location|}}}| &middot; {{{location}}}}}</span>
-<span class="bhf-citation__confidence bhf-citation__confidence--{{{confidence}}}">{{#switch:{{{confidence}}}|verified=Verified|single-source=Single source|disputed=Disputed|#default={{{confidence}}}}}</span>
-</div>

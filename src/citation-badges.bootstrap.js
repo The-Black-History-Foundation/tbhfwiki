@@ -15,7 +15,7 @@
 			return;
 		}
 
-		var citationElements = document.querySelectorAll( '.bhf-citation' );
+		var evidenceElements = document.querySelectorAll( '.bhf-evidence-entry' );
 		var catlinks = document.getElementById( 'catlinks' );
 		var categoryLinkTitles = catlinks ?
 			Array.prototype.map.call( catlinks.querySelectorAll( 'a' ), function ( a ) {
@@ -24,7 +24,7 @@
 			[];
 
 		mount.innerHTML = buildBadgeHtml( {
-			hasSources: countCitations( citationElements ) > 0,
+			hasSources: countEvidenceEntries( evidenceElements ) > 0,
 			isReviewed: hasReviewedCategory( categoryLinkTitles )
 		} );
 	}

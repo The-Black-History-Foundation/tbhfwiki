@@ -478,7 +478,7 @@
 	font-style: italic;
 }
 
-.bhf-citation {
+.bhf-evidence-entry {
 	background-color: var( --color-surface-1 );
 	border: 1px solid var( --border-color-base );
 	border-radius: 6px;
@@ -486,51 +486,19 @@
 	margin-bottom: 0.5rem;
 }
 
-.bhf-citation__type {
-	display: inline-block;
-	text-transform: uppercase;
-	font-size: 0.7rem;
-	letter-spacing: 0.03em;
-	color: var( --color-subtle );
-	margin-right: 0.5rem;
-}
-
-.bhf-citation--archival .bhf-citation__type::before {
-	content: "Archival Document";
-}
-
-.bhf-citation--newspaper .bhf-citation__type::before {
-	content: "Newspaper";
-}
-
-.bhf-citation--book .bhf-citation__type::before {
-	content: "Book";
-}
-
-.bhf-citation--oral-history .bhf-citation__type::before {
-	content: "Oral History";
-}
-
-.bhf-citation--record .bhf-citation__type::before {
-	content: "Government Record";
-}
-
-.bhf-citation--photo .bhf-citation__type::before {
-	content: "Photograph/Artifact";
-}
-
-.bhf-citation__title {
+.bhf-evidence-entry__title {
 	font-weight: 600;
+	display: block;
 }
 
-.bhf-citation__meta {
+.bhf-evidence-entry__meta {
 	display: block;
 	font-size: 0.85rem;
 	color: var( --color-subtle );
 	margin-top: 0.15rem;
 }
 
-.bhf-citation__confidence {
+.bhf-evidence-entry__reliability {
 	display: inline-block;
 	font-size: 0.7rem;
 	font-weight: 600;
@@ -542,16 +510,23 @@
 	margin-top: 0.3rem;
 }
 
-.bhf-citation__confidence--verified {
+.bhf-evidence-entry__reliability--verified {
 	color: var( --bhf-color-success );
 }
 
-.bhf-citation__confidence--single-source {
+.bhf-evidence-entry__reliability--single-source {
 	color: var( --color-subtle );
 }
 
-.bhf-citation__confidence--disputed {
+.bhf-evidence-entry__reliability--disputed {
 	color: var( --bhf-color-accent-terracotta );
+}
+
+.bhf-evidence-entry__citation {
+	font-size: 0.8rem;
+	color: var( --color-subtle );
+	font-style: italic;
+	margin-top: 0.3rem;
 }
 
 .bhf-badge--reviewed {
@@ -782,4 +757,33 @@
 	font-family: var( --font-family-citizen-serif );
 	font-size: 1.1rem;
 	line-height: 1.6;
+}
+
+.bhf-evidence-panel {
+	background-color: var( --color-surface-0 );
+	border: 1px solid var( --bhf-color-accent-gold );
+	border-radius: 8px;
+	padding: 1rem;
+	margin-block: 1rem;
+}
+
+.bhf-evidence-panel__summary {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.bhf-evidence-panel__category {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 700;
+	margin-top: 1rem;
+	padding-bottom: 0.25rem;
+	border-bottom: 2px solid var( --bhf-color-accent-terracotta );
+}
+
+.bhf-evidence-panel__subcategory {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 600;
+	margin-top: 0.75rem;
+	margin-left: 1rem;
 }

@@ -19,12 +19,12 @@ function lastActiveDate(contributions) {
 	}, contributions[ 0 ].timestamp );
 }
 
-function countCitationTemplateUsages(wikitext) {
-	const matches = wikitext.match( /\{\{\s*Citation\s*[|}]/gi );
+function countEvidenceTemplateUsages(wikitext) {
+	const matches = wikitext.match( /\{\{\s*Evidence\s*[|}]/gi );
 	return matches ? matches.length : 0;
 }
 
-function sumCitationCounts(perPageCounts) {
+function sumEvidenceCounts(perPageCounts) {
 	return perPageCounts.reduce( ( sum, count ) => sum + count, 0 );
 }
 
@@ -35,7 +35,7 @@ if ( typeof module !== 'undefined' ) {
 	module.exports = {
 		countDistinctArticles,
 		lastActiveDate,
-		countCitationTemplateUsages,
-		sumCitationCounts,
+		countEvidenceTemplateUsages,
+		sumEvidenceCounts,
 	};
 }
