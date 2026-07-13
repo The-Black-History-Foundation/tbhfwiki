@@ -168,3 +168,41 @@ without any of the font/logo files above.
       `Category:Evidence` (confirms the `<includeonly>` wrapper is intact)
 - [ ] Browser console shows no JS errors on an article with an Evidence
       panel
+
+## Chain verification and AI-readiness
+
+- [ ] An `{{Evidence}}` entry with `chainStatus=anchored` (plus
+      `chainNetwork` and `chainTxHash`) shows the "⛓ On-Chain Verified →"
+      badge, and the link resolves to a real-looking block-explorer URL
+      (correct the `subscan.io` link format once real anchored data exists
+      to test the actual URL pattern against)
+- [ ] An `{{Evidence}}` entry with none of the chain fields set renders
+      exactly as before this feature — no visible change, no empty badge
+- [ ] An `{{Evidence}}` or `{{ResearchLead}}` entry with `aiConsent=yes`
+      shows no visible change on the page (the field is intentionally
+      inert/stored-only)
+- [ ] The About page's new paragraph about AI model training renders
+      correctly, and its "Terms of Use" link reaches Section 10
+- [ ] The Terms of Use page's new Section 10 renders correctly, including
+      all three points (contribution-specific consent, the
+      speaking-for-others attestation, and the cannot-undo-after-training
+      caveat)
+
+## Before any future AI-training data export (maintainer note, not a
+   visitor-facing check)
+
+- [ ] Every `{{Evidence}}`/`{{ResearchLead}}` entry's `type`/need-category,
+      `reliability`, citation text, and `aiConsent` value are already
+      present as clean `data-*` attributes — confirm this still holds
+      before building an export
+- [ ] Manually review the category distribution across all
+      `aiConsent=yes` entries before training anything. Oral Histories and
+      other community-voice categories are the actual point of this
+      archive — flag and address any category that's disproportionately
+      institutional-record-heavy (Government Records, Land Records, etc.
+      are easier to collect in bulk from existing archives than oral
+      histories are to gather from community members) before using the
+      data to train a model
+- [ ] No export script or API endpoint exists yet — confirm this is still
+      deliberately out of scope until there's a meaningful volume of
+      consented content
