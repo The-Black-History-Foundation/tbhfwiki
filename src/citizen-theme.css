@@ -790,3 +790,32 @@
 	font-size: 1.1rem;
 	line-height: 1.6;
 }
+
+.bhf-evidence-panel {
+	background-color: var( --color-surface-0 );
+	border: 1px solid var( --bhf-color-accent-gold );
+	border-radius: 8px;
+	padding: 1rem;
+	margin-block: 1rem;
+}
+
+.bhf-evidence-panel__summary {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.bhf-evidence-panel__category {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 700;
+	margin-top: 1rem;
+	padding-bottom: 0.25rem;
+	border-bottom: 2px solid var( --bhf-color-accent-terracotta );
+}
+
+.bhf-evidence-panel__subcategory {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 600;
+	margin-top: 0.75rem;
+	margin-left: 1rem;
+}
