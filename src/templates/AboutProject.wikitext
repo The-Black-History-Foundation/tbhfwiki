@@ -65,6 +65,15 @@ doesn't exist yet either — but the moment it does, the path from "we know
 this happened, we just can't prove it yet" to "here's exactly how to help
 prove it" will be a single click.
 
+Beyond preservation and funding, some of what's gathered here may one day
+help train an AI model built specifically on community voice and
+research — the kind of model that doesn't yet exist, because the training
+data it would need doesn't typically get collected this way. Like the DAO
+and Charity Coin connections above, this isn't built yet — contributions
+are only ever used this way with the contributor's explicit, separate
+consent, never by default. See our [[Terms of Use#10. AI Model Training
+Consent|Terms of Use]] for the full explanation.
+
 == How This Compares ==
 
 {| class="wikitable"
