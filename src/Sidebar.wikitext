@@ -6,6 +6,8 @@
 * about-and-contribute
 ** About This Wiki|About This Wiki
 ** Help:Contributing|Contribute
+** [https://www.tbhfdn.org/volunteer Volunteer on tbhfdn.org]
+** [https://www.tbhfdn.org/donate Donate]
 ** Special:CreateAccount|Join the Project
 ** Terms of Use|Terms of Use
 * SEARCH

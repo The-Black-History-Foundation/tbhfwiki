@@ -10,20 +10,21 @@ const css = fs.readFileSync(
 );
 
 test('defines the brand hue/chroma/lightness on :root', () => {
-  assert.match(css, /--color-progressive-oklch__h:\s*26\.81/);
-  assert.match(css, /--color-progressive-oklch__c:\s*0\.1797/);
-  assert.match(css, /--color-progressive-oklch__l:\s*49\.68%/);
+  assert.match(css, /--color-progressive-oklch__h:\s*234\.04/);
+  assert.match(css, /--color-progressive-oklch__c:\s*0\.0945/);
+  assert.match(css, /--color-progressive-oklch__l:\s*48\.86%/);
 });
 
-test('tunes the surface ramp toward warm parchment', () => {
-  assert.match(css, /--color-surface-0-oklch__l:\s*94\.8%/);
-  assert.match(css, /--color-surface-0-oklch__c:\s*0\.018/);
+test('tunes the surface ramp toward clean white backgrounds', () => {
+  assert.match(css, /--color-surface-0-oklch__l:\s*100%/);
+  assert.match(css, /--color-surface-0-oklch__c:\s*0/);
 });
 
 test('defines custom accent properties matching the TBHF brand', () => {
-  assert.match(css, /--bhf-color-accent-gold:\s*#FFD700/i);
-  assert.match(css, /--bhf-color-accent-terracotta:\s*#B22222/i);
-  assert.match(css, /--bhf-color-success:\s*#006400/i);
+  assert.match(css, /--bhf-color-accent-primary:\s*#006994/i);
+  assert.match(css, /--bhf-color-accent-gold:\s*#F2B134/i);
+  assert.match(css, /--bhf-color-accent-terracotta:\s*#FF7F50/i);
+  assert.match(css, /--bhf-color-success:\s*#2E8B57/i);
 });
 
 test('overrides Citizen font-family variables with the TBHF brand fonts', () => {
@@ -58,15 +59,9 @@ test('no longer imports Google Fonts', () => {
   assert.ok(!css.includes('fonts.googleapis.com'));
 });
 
-test('gates the paper-grain texture behind performance-mode-off', () => {
-  assert.match(
-    css,
-    /\.citizen-feature-performance-mode-clientpref-0\s+\.bhf-texture-parchment/
-  );
-});
-
-test('paper-grain texture is a low-opacity SVG noise background', () => {
-  assert.match(css, /\.bhf-texture-parchment\s*{[^}]*background-image:\s*url\(/s);
+test('uses a flat parchment-free page background treatment', () => {
+  assert.match(css, /\.bhf-texture-parchment\s*{[^}]*background-color:\s*var\(\s*--color-surface-0\s*\)/s);
+  assert.ok(!css.includes('feTurbulence'), 'paper-grain texture removed for tbhfdn.org brand alignment');
 });
 
 test('defines homepage layout classes', () => {
@@ -112,9 +107,9 @@ test('defines the homepage community footer band and article contribute prompt',
   }
 });
 
-test('contribute prompt uses the terracotta accent, not gold, for its border', () => {
+test('contribute prompt uses the primary accent for its border', () => {
   const block = css.match(/\.bhf-contribute-prompt\s*{[^}]*}/s)[0];
-  assert.match(block, /border:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+  assert.match(block, /border:.*var\(\s*--bhf-color-accent-primary\s*\)/);
 });
 
 test('defines discovery rail layout and card classes', () => {
@@ -149,12 +144,12 @@ test('article headings render in the archival serif type system', () => {
 
 test('sets direct hex overrides for surface/base/border tokens to survive a future Citizen token-pipeline upgrade', () => {
   const rootBlock = css.match(/:root\s*{[^}]*}/s)[0];
-  assert.match(rootBlock, /--color-surface-0:\s*#F4EDE1/i);
-  assert.match(rootBlock, /--color-surface-1:\s*#FBF7EF/i);
-  assert.match(rootBlock, /--color-surface-2:\s*#F3ECDD/i);
-  assert.match(rootBlock, /--color-base:\s*#2A1D14/i);
-  assert.match(rootBlock, /--color-emphasized:\s*#2A1D14/i);
-  assert.match(rootBlock, /--border-color-base:\s*#D9CBB4/i);
+  assert.match(rootBlock, /--color-surface-0:\s*#FFFFFF/i);
+  assert.match(rootBlock, /--color-surface-1:\s*#F5F5F5/i);
+  assert.match(rootBlock, /--color-surface-2:\s*#E5E5E5/i);
+  assert.match(rootBlock, /--color-base:\s*#0D1B2A/i);
+  assert.match(rootBlock, /--color-emphasized:\s*#0D1B2A/i);
+  assert.match(rootBlock, /--border-color-base:\s*#E5E5E5/i);
 });
 
 test('defines the pull-quote attribution styling', () => {
@@ -229,13 +224,13 @@ test('need-tag variants set a distinct label via ::before content', () => {
   assert.match(css, /\.bhf-lead__need-tag--digitization::before\s*{\s*content:\s*"Digitization"/);
 });
 
-test('status badges use the established gold-fill/terracotta-fill/green-fill contrast pattern', () => {
+test('status badges use the established gold-fill/primary-fill/green-fill contrast pattern', () => {
   const openBlock = css.match(/\.bhf-lead__status--open\s*{[^}]*}/s)[0];
   assert.match(openBlock, /background-color:\s*var\(\s*--bhf-color-accent-gold\s*\)/);
   assert.match(openBlock, /color:\s*var\(\s*--bhf-color-text-on-gold\s*\)/);
 
   const inProgressBlock = css.match(/\.bhf-lead__status--in-progress\s*{[^}]*}/s)[0];
-  assert.match(inProgressBlock, /background-color:\s*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+  assert.match(inProgressBlock, /background-color:\s*var\(\s*--bhf-color-accent-primary\s*\)/);
   assert.match(inProgressBlock, /color:\s*var\(\s*--color-surface-0\s*\)/);
 
   const resolvedBlock = css.match(/\.bhf-lead__status--resolved\s*{[^}]*}/s)[0];
@@ -264,10 +259,10 @@ test('defines the masthead logo image class', () => {
   assert.match(block, /max-height:\s*80px/);
 });
 
-test('defines the legal-notice callout using the terracotta accent variable, not a hardcoded color', () => {
+test('defines the legal-notice callout using the primary accent variable, not a hardcoded color', () => {
   const block = css.match(/\.bhf-legal-notice\s*{[^}]*}/s)[0];
-  assert.match(block, /border-left:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
-  assert.match(block, /border:.*var\(\s*--bhf-color-accent-terracotta\s*\)/);
+  assert.match(block, /border-left:.*var\(\s*--bhf-color-accent-primary\s*\)/);
+  assert.match(block, /border:.*var\(\s*--bhf-color-accent-primary\s*\)/);
 });
 
 test('defines shared homepage spacing and eyebrow-label tokens', () => {

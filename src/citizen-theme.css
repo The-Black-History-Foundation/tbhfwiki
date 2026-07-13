@@ -1,9 +1,6 @@
 /* src/citizen-theme.css
  * Paste this entire file's contents into MediaWiki:Citizen.css on the wiki.
- * Parchment surface treatment — see docs/superpowers/specs/2026-07-06-black-history-wiki-skin-design.md
- * Accent colors and typography — see docs/superpowers/specs/2026-07-08-tbhf-brand-retheme-design.md
- * (the TBHF brand re-theme superseded that first spec's "Heritage Archival"
- * accent/font choices; the parchment background treatment is unchanged)
+ * Brand colors aligned with tbhfdn.org (TBHF-1 app/globals.css).
  */
 
 /* TBHF brand fonts (Helvetica + Neue Kabel), self-hosted on the wiki as
@@ -57,74 +54,45 @@
 }
 
 :root {
-	/* Brand hue/chroma/lightness — drives Citizen's link/accent color AND
-	 * (via shared hue) tints the surface ramp toward warm parchment tones.
-	 * Computed from #B22222 (TBHF brand Firebrick Red). */
-	--color-progressive-oklch__h: 26.81;
-	--color-progressive-oklch__c: 0.1797;
-	--color-progressive-oklch__l: 49.68%;
+	/* Brand hue/chroma/lightness — drives Citizen's link/accent color.
+	 * Computed from #006994 (TBHF Ocean Blue, --primary on tbhfdn.org). */
+	--color-progressive-oklch__h: 234.04;
+	--color-progressive-oklch__c: 0.0945;
+	--color-progressive-oklch__l: 48.86%;
 
-	/* Nudge the surface ramp lighter/warmer than Citizen's default so
-	 * surface-0 lands close to #F4EDE1 (parchment) instead of neutral grey.
-	 * Harmless now that --color-surface-0/1/2 are also set directly below —
-	 * kept for the legacy token pipeline, same as before. */
-	--color-surface-0-oklch__l: 94.8%;
-	--color-surface-0-oklch__c: 0.018;
+	/* Neutral surface ramp — clean white/grey backgrounds matching tbhfdn.org */
+	--color-surface-0-oklch__l: 100%;
+	--color-surface-0-oklch__c: 0;
 
-	/* TBHF brand accent colors (Firebrick Red / Gold / Dark Green), per
-	 * tbhfdn.org's README-documented design system. Terracotta's former role
-	 * (secondary accent: disputed citations, in-progress leads, the
-	 * contribute-prompt border) merges into Firebrick Red — the real brand
-	 * has one red, not two. Gold is only ever used as a filled background
-	 * with --bhf-color-text-on-gold on top (1.21:1 as text-on-parchment
-	 * fails AA; 11.66:1 as a filled chip with espresso text passes). */
-	--bhf-color-accent-gold: #FFD700;
-	--bhf-color-text-on-gold: #2A1D14;
-	--bhf-color-accent-terracotta: #B22222;
-	--bhf-color-success: #006400;
+	/* TBHF brand accent colors (Ocean Blue / Gold / Sea Green / Coral) */
+	--bhf-color-accent-primary: #006994;
+	--bhf-color-accent-primary-dark: #005275;
+	--bhf-color-accent-gold: #F2B134;
+	--bhf-color-text-on-gold: #0D1B2A;
+	--bhf-color-accent-terracotta: #FF7F50;
+	--bhf-color-success: #2E8B57;
 
-	/* TBHF brand typography system — overrides Citizen's default
-	 * font-family. Despite the "-serif" in this Citizen-native variable
-	 * name (not renamed by this project), it now carries Neue Kabel, a
-	 * sans-serif heading face — there is no serif anywhere in this
-	 * typography system post-retheme. Neue Kabel has no common
-	 * system-installed equivalent, so its fallback degrades straight to
-	 * the same sans-serif stack as the body font. */
+	/* TBHF brand typography — Helvetica body, Neue Kabel headings */
 	--font-family-citizen-serif: 'TBHF-NeueKabel', Helvetica, Arial, sans-serif;
 	--font-family-citizen-base: 'TBHF-Helvetica', Helvetica, Arial, sans-serif;
 
-	/* Direct overrides for Citizen's newer token pipeline, which does not
-	 * derive these from the oklch sub-tokens above. Kept alongside the
-	 * oklch tokens (not instead of) so the parchment palette survives a
-	 * future Citizen upgrade to the new pipeline — a later declaration
-	 * always wins regardless of which pipeline is active. */
-	--color-surface-0: #F4EDE1;
-	--color-surface-1: #FBF7EF;
-	--color-surface-2: #F3ECDD;
-	--color-base: #2A1D14;
-	--color-emphasized: #2A1D14;
-	--border-color-base: #D9CBB4;
+	/* Direct token overrides for Citizen's newer pipeline */
+	--color-surface-0: #FFFFFF;
+	--color-surface-1: #F5F5F5;
+	--color-surface-2: #E5E5E5;
+	--color-base: #0D1B2A;
+	--color-emphasized: #0D1B2A;
+	--border-color-base: #E5E5E5;
 
-	/* Homepage-redesign-only tokens — shared vertical rhythm and
-	 * "eyebrow" label styling across the hero banner, mission section,
-	 * and discovery rail headings. Not used by any already-shipped
-	 * component (infobox, citation/evidence tags, pull-quote, etc.). */
+	/* Homepage layout tokens */
 	--bhf-homepage-section-spacing: 3rem;
 	--bhf-eyebrow-font-size: 0.8rem;
 	--bhf-eyebrow-letter-spacing: 0.08em;
 }
 
-/* Subtle paper-grain texture — inline SVG fractal noise, no external asset.
- * Only applied when performance mode is off (heavy per-pixel filter cost on
- * weak devices); .bhf-texture-parchment alone (without the gate) is a plain
- * flat surface-0 background. */
+/* Flat page background — matches tbhfdn.org (no parchment grain) */
 .bhf-texture-parchment {
 	background-color: var( --color-surface-0 );
-}
-
-.citizen-feature-performance-mode-clientpref-0 .bhf-texture-parchment {
-	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.35  0 0 0 0 0.27  0 0 0 0 0.18  0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E" );
-	background-repeat: repeat;
 }
 
 .bhf-masthead {
@@ -166,7 +134,7 @@
 	font-size: var( --bhf-eyebrow-font-size );
 	letter-spacing: var( --bhf-eyebrow-letter-spacing );
 	text-transform: uppercase;
-	color: var( --bhf-color-accent-terracotta );
+	color: var( --bhf-color-accent-primary );
 	font-weight: 700;
 }
 
@@ -271,8 +239,8 @@
  * wikitext content either (same root cause as the hero search form issue
  * above) -- it HTML-escapes <svg>...</svg> into visible, broken text
  * instead of rendering it. Confirmed on a live test wiki. Colors are
- * hardcoded to match --bhf-color-text-on-gold (#2A1D14) and
- * --bhf-color-accent-gold (#FFD700) since CSS custom properties cannot be
+ * hardcoded to match --bhf-color-text-on-gold (#0D1B2A) and
+ * --bhf-color-accent-gold (#F2B134) since CSS custom properties cannot be
  * referenced inside a data: URI. */
 .bhf-category-tile__icon {
 	display: block;
@@ -284,19 +252,19 @@
 }
 
 .bhf-category-tile--people .bhf-category-tile__icon {
-	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8'/%3E%3C/svg%3E" );
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D1B2A' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8'/%3E%3C/svg%3E" );
 }
 
 .bhf-category-tile--places .bhf-category-tile__icon {
-	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Cpath d='M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-4-3-7-7-7z'/%3E%3Ccircle cx='12' cy='9' r='2.5' fill='%23FFD700' stroke='none'/%3E%3C/svg%3E" );
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D1B2A' stroke-width='2'%3E%3Cpath d='M12 2C8 2 5 5 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-4-3-7-7-7z'/%3E%3Ccircle cx='12' cy='9' r='2.5' fill='%23F2B134' stroke='none'/%3E%3C/svg%3E" );
 }
 
 .bhf-category-tile--events .bhf-category-tile__icon {
-	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E" );
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D1B2A' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E" );
 }
 
 .bhf-category-tile--eras .bhf-category-tile__icon {
-	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1D14' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 3'/%3E%3C/svg%3E" );
+	background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D1B2A' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 3'/%3E%3C/svg%3E" );
 }
 
 #firstHeading,
@@ -324,7 +292,7 @@
 	letter-spacing: var( --bhf-eyebrow-letter-spacing );
 	text-transform: uppercase;
 	font-weight: 700;
-	color: var( --bhf-color-accent-terracotta );
+	color: var( --bhf-color-accent-primary );
 	margin-top: 0;
 }
 
@@ -503,7 +471,7 @@
 }
 
 .bhf-contribute-prompt {
-	border: 1px dashed var( --bhf-color-accent-terracotta );
+	border: 1px dashed var( --bhf-color-accent-primary );
 	border-radius: 6px;
 	padding: 0.75rem 1rem;
 	margin-top: 2rem;
@@ -719,7 +687,7 @@
 }
 
 .bhf-lead__status--in-progress {
-	background-color: var( --bhf-color-accent-terracotta );
+	background-color: var( --bhf-color-accent-primary );
 	color: var( --color-surface-0 );
 }
 
@@ -781,8 +749,8 @@
 
 .bhf-legal-notice {
 	background-color: var( --color-surface-1 );
-	border: 1px solid var( --bhf-color-accent-terracotta );
-	border-left: 4px solid var( --bhf-color-accent-terracotta );
+	border: 1px solid var( --bhf-color-accent-primary );
+	border-left: 4px solid var( --bhf-color-accent-primary );
 	border-radius: 6px;
 	padding: 0.75rem 1rem;
 	margin-bottom: 1rem;
@@ -803,7 +771,7 @@
 	font-size: var( --bhf-eyebrow-font-size );
 	letter-spacing: var( --bhf-eyebrow-letter-spacing );
 	text-transform: uppercase;
-	color: var( --bhf-color-accent-terracotta );
+	color: var( --bhf-color-accent-primary );
 	font-weight: 700;
 	margin-bottom: 0.75rem;
 }

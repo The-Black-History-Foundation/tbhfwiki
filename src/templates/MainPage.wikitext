@@ -49,10 +49,10 @@ In 1860, the community of Africatown told the story of the ''Clotilda'' for over
 <div class="bhf-footer-band__links">
 '''About Us'''
 
-[[About]] &middot; [[Contact]] &middot; [[About This Wiki]] &middot; [[Terms of Use]]
+[https://www.tbhfdn.org/about About] &middot; [https://www.tbhfdn.org/contact Contact] &middot; [[About This Wiki]] &middot; [[Terms of Use]]
 
 '''Get Involved'''
 
-[https://www.tbhfdn.org/donate Donate] &middot; [[Help:Contributing|Contribute]]
+[https://www.tbhfdn.org/volunteer Volunteer] &middot; [https://www.tbhfdn.org/donate Donate] &middot; [https://www.tbhfdn.org/educational Educational] &middot; [[Help:Contributing|Contribute]]
 </div>
 </div>

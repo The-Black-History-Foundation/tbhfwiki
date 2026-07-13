@@ -8,11 +8,10 @@ templates. **No forked skin package, no core MediaWiki changes.**
 
 ## Features
 
-- **Base theme** — a warm parchment background with the TBHF brand's
-  Firebrick Red / Gold / Dark Green accents and Helvetica/Neue Kabel
-  typography, a homepage with a "discovery rail" (Recently Added +
-  Trending articles), and article components (infoboxes, pull-quotes,
-  breadcrumbs, contribute prompts).
+- **TBHF brand theme** — colors and typography aligned with [tbhfdn.org](https://tbhfdn.org)
+  (Ocean Blue / Gold / Sea Green on clean white backgrounds), a homepage with a
+  "discovery rail" (Recently Added + Trending articles), and article components
+  (infoboxes, pull-quotes, breadcrumbs, contribute prompts).
 - **Source-citation tooling** — a `{{Citation}}` template with source types
   and confidence ratings, plus automatic "Sources cited" and "Reviewer
   confirmed" badges computed from real page content (never a manual flag).
@@ -32,11 +31,25 @@ and `docs/superpowers/plans/` for how each was built.
 
 ## Deploying
 
+See **[DEPLOY-RAILWAY.md](DEPLOY-RAILWAY.md)** for Railway hosting (account: `tech@tbhfdn.org`).
+
+Automated theme upload:
+
+```bash
+export MW_API_URL=https://<your-service>.up.railway.app/w/api.php
+export MW_BOT_USER=tech@tbhfdn.org
+export MW_BOT_PASSWORD=<password>
+node scripts/deploy-theme.mjs
+```
+
+Manual deploy (if not using `scripts/deploy-theme.mjs`):
+
 1. Install MediaWiki + the Citizen skin (unmodified) per
    https://www.mediawiki.org/wiki/Skin:Citizen#Installation.
-2. Paste the entire contents of `src/citizen-theme.css` into
+2. Upload font and logo assets from `assets/` (see `assets/README.md`).
+3. Paste the entire contents of `src/citizen-theme.css` into
    `MediaWiki:Citizen.css` on the wiki.
-3. Paste the following JS files into `MediaWiki:Citizen.js`, **each pure
+4. Paste the following JS files into `MediaWiki:Citizen.js`, **each pure
    module immediately followed by its own bootstrap** (order between
    different features doesn't matter, but within a feature the pure module
    must come before its bootstrap):
@@ -44,15 +57,15 @@ and `docs/superpowers/plans/` for how each was built.
    - `src/citation-badges.js` then `src/citation-badges.bootstrap.js`
    - `src/contributor-stats.js` then `src/contributor-stats.bootstrap.js`
    - `src/research-leads.js` then `src/research-leads.bootstrap.js`
-4. Paste `src/Citizen-preferences.json` into
+5. Paste `src/Citizen-preferences.json` into
    `MediaWiki:Citizen-preferences.json` (forces the light theme, matching
    this project's design).
-5. Add the snippet in `LocalSettings-snippet.php` to your `LocalSettings.php`.
-6. Create each file in `src/templates/` as an on-wiki page (see the table
+6. Add the snippet in `LocalSettings-snippet.php` to your `LocalSettings.php`.
+7. Create each file in `src/templates/` as an on-wiki page (see the table
    below for what to name each one).
-7. Create a page (e.g. "Research Leads") with the contents of
+8. Create a page (e.g. "Research Leads") with the contents of
    `src/templates/LeadsBoard.wikitext` and link it from site navigation.
-8. Paste `src/Sidebar.wikitext`, `src/Explore-the-archive.wikitext`, and
+9. Paste `src/Sidebar.wikitext`, `src/Explore-the-archive.wikitext`, and
    `src/About-and-contribute.wikitext` (also listed in the table below,
    but — like `src/Citizen-preferences.json` above — these three live at
    the top level of `src/`, not under `src/templates/`) into
