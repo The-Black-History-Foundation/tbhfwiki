@@ -14,7 +14,12 @@
     renders): chainStatus (none|pending|anchored), daoProposalId, ipfsCid,
     chainNetwork (e.g. "Paseo"), chainTxHash, chainVerifiedDate. Anchoring
     is intended for verified/single-source evidence, not disputed — not
-    technically enforced, just the intended use. -->
+    technically enforced, just the intended use.
+    Optional aiConsent field (yes|anything else/omitted = no): agreeing
+    that this entry may be used to train an AI model, separate from the
+    CC BY-SA license covering general reuse. Renders nothing visible — see
+    Terms of Use section 10 for the full explanation before using this
+    field. -->
 <div class="bhf-evidence-entry"
      data-evidence-title="{{{title}}}"
      data-evidence-type="{{{type}}}"
@@ -27,7 +32,8 @@
      data-evidence-ipfs-cid="{{{ipfsCid|}}}"
      data-evidence-chain-network="{{{chainNetwork|}}}"
      data-evidence-chain-tx-hash="{{{chainTxHash|}}}"
-     data-evidence-chain-verified-date="{{{chainVerifiedDate|}}}">
+     data-evidence-chain-verified-date="{{{chainVerifiedDate|}}}"
+     data-evidence-ai-consent="{{{aiConsent|}}}">
 <span class="bhf-evidence-entry__title">{{{title}}}</span>
 <span class="bhf-evidence-entry__meta">{{{type}}}{{#if:{{{date|}}}| &middot; {{{date}}}}}{{#if:{{{repository|}}}| &middot; {{{repository}}}}}</span>
 <span class="bhf-evidence-entry__reliability bhf-evidence-entry__reliability--{{{reliability}}}">{{#switch:{{{reliability}}}|verified=Verified|single-source=Single source|disputed=Disputed|#default={{{reliability}}}}}</span>

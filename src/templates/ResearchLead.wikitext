@@ -4,8 +4,13 @@
     Optional: known, needed1 through needed3 (archival|translation|fieldwork|
     funding|expertise|digitization, one per slot, not pipe-separated),
     campaignUrl (a future Charity Coin link — only meaningful when one of
-    needed1-needed3 is funding; not required, not yet used anywhere) -->
-<div class="bhf-lead">
+    needed1-needed3 is funding; not required, not yet used anywhere).
+    Optional aiConsent field (yes|anything else/omitted = no): agreeing
+    that this lead may be used to train an AI model, separate from the
+    CC BY-SA license covering general reuse. Renders nothing visible — see
+    Terms of Use section 10 for the full explanation before using this
+    field. -->
+<div class="bhf-lead" data-lead-ai-consent="{{{aiConsent|}}}">
 <div class="bhf-lead__summary">{{{summary}}}</div>
 {{#if:{{{known|}}}|<div class="bhf-lead__known">{{{known}}}</div>}}
 <div class="bhf-lead__needs">{{#if:{{{needed1|}}}|<span class="bhf-lead__need-tag bhf-lead__need-tag--{{{needed1}}}"></span>}}{{#if:{{{needed2|}}}|<span class="bhf-lead__need-tag bhf-lead__need-tag--{{{needed2}}}"></span>}}{{#if:{{{needed3|}}}|<span class="bhf-lead__need-tag bhf-lead__need-tag--{{{needed3}}}"></span>}}</div>
