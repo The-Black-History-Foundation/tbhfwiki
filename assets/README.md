@@ -22,9 +22,10 @@ Upload from `fonts/` with these exact filenames (referenced in `src/citizen-them
 | `logos/TBHF_Main_Text.png` | Reference for wordmark | Optional |
 | `logos/TBHF_Main_Icon.png` | Reference for icon | Optional |
 
-For `$wgLogos` in `LocalSettings-snippet.php`, place SVG/PNG wordmark and icon files at:
+For `$wgLogos` in `LocalSettings-snippet.php`, place these files on the MediaWiki
+server at:
 
-- `resources/assets/tbhfdn-wordmark.svg` (or `.png`)
-- `resources/assets/tbhfdn-icon.svg` (or `.png`)
+- `resources/assets/TBHF_Main_Text.png` (wordmark, from `logos/TBHF_Main_Text.png`)
+- `resources/assets/TBHF_Main_Icon.png` (icon, from `logos/TBHF_Main_Icon.png`)
 
-on the MediaWiki server, or update the paths in the snippet after upload.
+or update the paths in the snippet if you place them elsewhere.
