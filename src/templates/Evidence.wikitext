@@ -37,7 +37,7 @@
 <span class="bhf-evidence-entry__title">{{{title}}}</span>
 <span class="bhf-evidence-entry__meta">{{{type}}}{{#if:{{{date|}}}| &middot; {{{date}}}}}{{#if:{{{repository|}}}| &middot; {{{repository}}}}}</span>
 <span class="bhf-evidence-entry__reliability bhf-evidence-entry__reliability--{{{reliability}}}">{{#switch:{{{reliability}}}|verified=Verified|single-source=Single source|disputed=Disputed|#default={{{reliability}}}}}</span>
-{{#ifeq:{{{chainStatus|}}}|anchored|<a class="bhf-evidence-entry__chain-badge" href="https://{{{chainNetwork|}}}.subscan.io/extrinsic/{{{chainTxHash|}}}">⛓ On-Chain Verified →</a>|}}
+{{#ifeq:{{{chainStatus|}}}|anchored|<span class="bhf-evidence-entry__chain-badge">[https://{{{chainNetwork|}}}.subscan.io/extrinsic/{{{chainTxHash|}}} ⛓ On-Chain Verified →]</span>|}}
 {{#if:{{{citation|}}}|<div class="bhf-evidence-entry__citation">{{{citation}}}</div>}}
 </div>
 <includeonly>[[Category:Evidence]]</includeonly>

@@ -532,14 +532,24 @@
 .bhf-evidence-entry__chain-badge {
 	display: inline-block;
 	background-color: var( --bhf-color-accent-primary );
-	color: var( --color-surface-0 );
 	font-size: 0.7rem;
 	font-weight: 600;
-	text-decoration: none;
 	padding: 0.15rem 0.6rem;
 	border-radius: 999px;
 	margin-top: 0.3rem;
 	margin-left: 0.4rem;
+}
+
+/* The badge's link is MediaWiki's own [url text] external-link syntax
+ * (not a hand-written <a href> — writing a raw <a href="https://..."> with
+ * a computed URL triggers MediaWiki's free-external-link autolinker to
+ * ALSO process that same URL text, corrupting the tag into broken, escaped
+ * markup. Confirmed on a live test wiki. The external-link syntax avoids
+ * this entirely.), so its color/underline are reset here rather than on
+ * the wrapping span. */
+.bhf-evidence-entry__chain-badge a.external {
+	color: var( --color-surface-0 );
+	text-decoration: none;
 }
 
 .bhf-badge--reviewed {
