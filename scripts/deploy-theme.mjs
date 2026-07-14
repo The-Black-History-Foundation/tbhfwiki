@@ -9,14 +9,17 @@
  *
  * Usage: node scripts/deploy-theme.mjs
  */
-const fs = require('node:fs');
-const path = require('node:path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = path.join(__dirname, '..');
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const JS_BUNDLE = [
 	'src/discovery-rail.js',
 	'src/discovery-rail.bootstrap.js',
+	'src/evidence-panel.js',
+	'src/evidence-panel.bootstrap.js',
 	'src/citation-badges.js',
 	'src/citation-badges.bootstrap.js',
 	'src/contributor-stats.js',
@@ -32,9 +35,10 @@ const TEMPLATE_MAP = {
 	'src/templates/RelatedPages.wikitext': 'Template:RelatedPages',
 	'src/templates/Quote.wikitext': 'Template:Quote',
 	'src/templates/ContributeFooter.wikitext': 'Template:ContributeFooter',
-	'src/templates/Citation.wikitext': 'Template:Citation',
+	'src/templates/Evidence.wikitext': 'Template:Evidence',
 	'src/templates/ContributorProfile.wikitext': 'Template:ContributorProfile',
 	'src/templates/ResearchLead.wikitext': 'Template:ResearchLead',
+	'src/templates/LeadsBoard.wikitext': 'Research Leads',
 	'src/templates/AboutProject.wikitext': 'About This Wiki',
 	'src/templates/TermsOfUse.wikitext': 'Terms of Use',
 	'src/templates/HelpContributing.wikitext': 'Help:Contributing',
