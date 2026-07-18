@@ -1,5 +1,12 @@
 # Deploy TBHF Wiki on Railway
 
+> **Not the current deployment path.** Railway's MediaWiki template requires
+> 3 persistent volumes, but a Railway project on the free plan is capped at
+> 1 volume — the only fix on Railway itself is upgrading to a paid plan.
+> This wiki deploys via **[DEPLOY-SELFHOST.md](DEPLOY-SELFHOST.md)** instead
+> (Oracle Cloud's Always Free tier). Kept here in case Railway's limits
+> change or a paid plan becomes an option later.
+
 This wiki runs on **Railway** (not Vercel). The main site at [tbhfdn.org](https://tbhfdn.org) links to it via `NEXT_PUBLIC_WIKI_URL`.
 
 ## Prerequisites

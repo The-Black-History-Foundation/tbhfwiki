@@ -34,14 +34,17 @@ and `docs/superpowers/plans/` for how each was built.
 
 ## Deploying
 
-See **[DEPLOY-RAILWAY.md](DEPLOY-RAILWAY.md)** for Railway hosting (account: `tech@tbhfdn.org`).
+See **[DEPLOY-SELFHOST.md](DEPLOY-SELFHOST.md)** for self-hosting on Oracle
+Cloud's Always Free tier (the current deployment path — see that file for
+why Railway isn't used; `DEPLOY-RAILWAY.md` is kept for reference in case
+that changes).
 
 Automated theme upload:
 
 ```bash
-export MW_API_URL=https://<your-service>.up.railway.app/w/api.php
-export MW_BOT_USER=tech@tbhfdn.org
-export MW_BOT_PASSWORD=<password>
+export MW_API_URL=http://<your-server>/w/api.php
+export MW_BOT_USER='WikiAdmin@tbhf-deploy'
+export MW_BOT_PASSWORD=<bot password>
 node scripts/deploy-theme.mjs
 ```
 
