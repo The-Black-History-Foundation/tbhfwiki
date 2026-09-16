@@ -1,16 +1,16 @@
 <!-- src/templates/MainPage.wikitext — paste as the wiki's Main Page content -->
 <div class="bhf-masthead bhf-texture-parchment">
-[[File:TBHF-Logo.png|center|link=|alt=The Black History Foundation|class=bhf-masthead__logo]]
+[[File:TBHF-Logo2.png|center|link=|alt=The Black History Foundation|class=bhf-masthead__logo]]
 
 <span class="bhf-masthead__tagline">''Discover. Preserve. Share.''</span>
 </div>
 
 <div class="bhf-hero-banner bhf-texture-parchment">
 <div class="bhf-hero-banner__content">
-[[File:Featured-placeholder.jpg|thumb|none]]
+[[File:Green-book-1953.jpg|thumb|none|link=The Green Book: A Roadmap to Freedom|alt=Cover of The Negro Travelers’ Green Book, 1953]]
 <span class="bhf-hero-banner__eyebrow">Featured Research</span>
-<span class="bhf-hero-banner__title">{{FEATURED_TITLE}}</span>
-<div class="bhf-hero-banner__excerpt">{{FEATURED_EXCERPT}}</div>
+<span class="bhf-hero-banner__title">[[The Green Book: A Roadmap to Freedom]]</span>
+<div class="bhf-hero-banner__excerpt">How a Harlem postal worker’s guide helped Black Americans travel with greater safety, dignity, and freedom through Jim Crow America.</div>
 </div>
 <div class="bhf-hero-banner__search">
 <span class="bhf-hero-banner__search-label">Explore the Archive</span>

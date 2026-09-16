@@ -96,14 +96,28 @@
 }
 
 .bhf-masthead {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
 	text-align: center;
 	padding: 2rem 1rem;
 	font-family: var( --font-family-citizen-serif );
 }
 
 .bhf-masthead__tagline {
+	display: block;
 	color: var( --color-subtle );
 	font-style: italic;
+	font-size: 1.25rem;
+	letter-spacing: 0.04em;
+}
+
+/* The masthead logo + tagline is the homepage heading. */
+.page-Main_Page .mw-body-header,
+.page-Main_Page #firstHeading,
+.page-Main_Page .mw-first-heading {
+	display: none;
 }
 
 .bhf-hero-banner {
@@ -739,10 +753,15 @@
 	margin-top: 0.2rem;
 }
 
-.bhf-masthead__logo {
+.bhf-masthead__logo,
+.bhf-masthead img {
 	display: block;
-	margin: 0 auto;
-	max-height: 80px;
+	width: auto;
+	height: auto;
+	max-width: min( 100%, 28rem );
+	max-height: 140px;
+	margin-inline: auto;
+	object-fit: contain;
 }
 
 .bhf-legal-notice {
@@ -809,4 +828,29 @@
 	font-weight: 600;
 	margin-top: 0.75rem;
 	margin-left: 1rem;
+}
+
+/* Replace MediaWiki's default "change-your-logo" placeholder with the small
+ * TBHF BH mark (File:TBHF-Logo.png). Scoped to the footer so the header
+ * button keeps Citizen's built-in icon sizing. */
+.citizen-footer__sitetitle {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.citizen-footer img.mw-logo-icon {
+	box-sizing: border-box;
+	width: 48px;
+	height: 48px;
+	flex-shrink: 0;
+	padding-left: 48px;
+	background: url( '/wiki/Special:Redirect/file/TBHF-Logo.png' ) no-repeat center / contain;
+}
+
+.citizen-footer .mw-logo-wordmark {
+	font-family: var( --font-family-citizen-serif );
+	font-weight: 700;
+	color: var( --color-emphasized );
 }

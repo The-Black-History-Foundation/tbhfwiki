@@ -247,10 +247,60 @@ test('the lead card is a single anchor with no nested link (unlike the discovery
 });
 
 test('defines the masthead logo image class', () => {
-  const block = css.match(/\.bhf-masthead__logo\s*{[^}]*}/s)[0];
+  const block = css.match(/\.bhf-masthead__logo(?:\s*,\s*\.bhf-masthead img)?\s*{[^}]*}/s)[0];
   assert.match(block, /display:\s*block/);
-  assert.match(block, /margin:\s*0\s*auto/);
-  assert.match(block, /max-height:\s*80px/);
+  assert.match(block, /width:\s*auto/);
+  assert.match(block, /height:\s*auto/);
+  assert.match(block, /max-height:\s*140px/);
+  assert.match(block, /margin-inline:\s*auto/);
+  assert.match(block, /object-fit:\s*contain/);
+});
+
+test('centers the masthead logo above the tagline', () => {
+  const block = css.match(/\.bhf-masthead\s*{[^}]*}/s)[0];
+  assert.match(block, /flex-direction:\s*column/);
+  assert.match(block, /align-items:\s*center/);
+  assert.match(block, /text-align:\s*center/);
+});
+
+test('hides the default Main Page title so the masthead is the heading', () => {
+  assert.match(css, /\.page-Main_Page #firstHeading/);
+  assert.match(css, /\.page-Main_Page \.mw-first-heading/);
+});
+
+test('replaces the Citizen footer placeholder icon with the small TBHF logo', () => {
+  const titleBlock = css.match(/\.citizen-footer__sitetitle\s*{[^}]*}/s)[0];
+  assert.match(titleBlock, /flex-direction:\s*row/);
+  assert.match(titleBlock, /align-items:\s*center/);
+
+  const iconBlock = css.match(/\.citizen-footer img\.mw-logo-icon\s*{[^}]*}/s)[0];
+  assert.match(iconBlock, /url\(\s*'\/wiki\/Special:Redirect\/file\/TBHF-Logo\.png'\s*\)/);
+  assert.match(iconBlock, /width:\s*48px/);
+  assert.match(iconBlock, /height:\s*48px/);
+});
+
+test('the Citizen footer description and tagline replace the default placeholders', () => {
+  const desc = fs.readFileSync(
+    path.join(__dirname, '..', 'src', 'Citizen-footer-desc.wikitext'),
+    'utf8'
+  );
+  const tagline = fs.readFileSync(
+    path.join(__dirname, '..', 'src', 'Citizen-footer-tagline.wikitext'),
+    'utf8'
+  );
+  assert.ok(!desc.includes('Edit this text'));
+  assert.match(desc, /community-built archive/);
+  assert.match(desc, /\[\[About This Wiki\|Learn more\]\]/);
+  assert.match(tagline, /''Discover\. Preserve\. Share\.''/);
+});
+
+test('the Main Page masthead uses TBHF-Logo2.png with the Discover. Preserve. Share. tagline', () => {
+  const mainPage = fs.readFileSync(
+    path.join(__dirname, '..', 'src', 'templates', 'MainPage.wikitext'),
+    'utf8'
+  );
+  assert.match(mainPage, /\[\[File:TBHF-Logo2\.png\|center\|/);
+  assert.match(mainPage, /class="bhf-masthead__tagline">''Discover\. Preserve\. Share\.''/);
 });
 
 test('defines the legal-notice callout using the primary accent variable, not a hardcoded color', () => {

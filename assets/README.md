@@ -18,7 +18,8 @@ Upload from `fonts/` with these exact filenames (referenced in `src/citizen-them
 
 | Local file | Upload as | Used by |
 |------------|-----------|---------|
-| `logos/TBHF-Logo.png` | `File:TBHF-Logo.png` | Main Page masthead |
+| `logos/TBHF-Logo.png` | `File:TBHF-Logo.png` | Citizen footer / site icon |
+| `logos/TBHF-Logo2.png` | `File:TBHF-Logo2.png` | Main Page masthead |
 | `logos/TBHF_Main_Text.png` | Reference for wordmark | Optional |
 | `logos/TBHF_Main_Icon.png` | Reference for icon | Optional |
 

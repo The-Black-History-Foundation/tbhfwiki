@@ -45,6 +45,8 @@ const TEMPLATE_MAP = {
 	'src/Sidebar.wikitext': 'MediaWiki:Sidebar',
 	'src/Explore-the-archive.wikitext': 'MediaWiki:Explore-the-archive',
 	'src/About-and-contribute.wikitext': 'MediaWiki:About-and-contribute',
+	'src/Citizen-footer-desc.wikitext': 'MediaWiki:Citizen-footer-desc',
+	'src/Citizen-footer-tagline.wikitext': 'MediaWiki:Citizen-footer-tagline',
 };
 
 function read(relPath) {
@@ -59,14 +61,34 @@ function requireEnv(name) {
 	return value;
 }
 
+const cookies = new Map();
+
+function getCookieHeader() {
+	return [...cookies.entries()].map(([name, value]) => `${name}=${value}`).join('; ');
+}
+
+function storeCookies(response) {
+	const setCookies = response.headers.getSetCookie?.() ?? [];
+	for (const cookie of setCookies) {
+		const [pair] = cookie.split(';');
+		const eq = pair.indexOf('=');
+		if (eq === -1) continue;
+		cookies.set(pair.slice(0, eq).trim(), pair.slice(eq + 1).trim());
+	}
+}
+
 async function apiRequest(params) {
 	const apiUrl = requireEnv('MW_API_URL');
-	const body = new URLSearchParams(params);
+	const headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+	if (cookies.size > 0) {
+		headers.Cookie = getCookieHeader();
+	}
 	const response = await fetch(apiUrl, {
 		method: 'POST',
-		headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-		body,
+		headers,
+		body: new URLSearchParams(params),
 	});
+	storeCookies(response);
 	const json = await response.json();
 	if (json.error) {
 		throw new Error(`MediaWiki API error: ${json.error.info || JSON.stringify(json.error)}`);
@@ -92,7 +114,11 @@ async function login() {
 		format: 'json',
 	});
 	if (loginResp.login?.result !== 'Success') {
-		throw new Error(`Login failed: ${loginResp.login?.result || 'unknown'}`);
+		const result = loginResp.login?.result || 'unknown';
+		const reason = loginResp.login?.reason || '';
+		throw new Error(
+			`Login failed: ${result}${reason ? ` — ${reason}` : ''}`
+		);
 	}
 	const csrfResp = await apiRequest({
 		action: 'query',

@@ -1,0 +1,77 @@
+{{ArticleBreadcrumb|type=Publication|era=Jim Crow Era|place=United States}}
+{{Infobox|type=event|title=The Negro Motorist Green Book|image=Green-book-1953.jpg|body=
+'''Also known as''' The Green Book<br />
+'''Founder''' [[Victor Hugo Green]]<br />
+'''First published''' 1936<br />
+'''Published''' 1936–1966<br />
+'''Purpose''' Safer travel during segregation<br />
+'''Legacy''' Mobility, enterprise, and community
+}}
+
+How a Harlem postal worker’s guide helped Black Americans travel with greater safety, dignity, and freedom through Jim Crow America.
+
+== The open road ==
+During the twentieth century, the automobile transformed American life. It promised independence: the freedom to visit family, seek opportunity, and see the country on your own terms.
+
+For Black Americans, that promise was constrained by segregation. A family on the road could not assume that a restaurant would serve them, a hotel would rent them a room, or the next community would be safe after dark. Formal Jim Crow laws combined with local custom and individual discrimination to make an ordinary journey uncertain—and sometimes dangerous.
+
+{{Quote|text=Carry your Green Book with you… you may need it.|attribution=Message printed in the 1946 edition}}
+
+In 1936, [[Victor Hugo Green]] published the first ''Negro Motorist Green Book''. What began as a New York-area resource grew into a guide spanning much of North America. Its premise was practical and profound: tell Black travelers where they could go.
+
+== Victor Hugo Green ==
+Green was a postal carrier whose work connected him to addresses, neighborhoods, and networks of information. Born in New York City in 1892, he later lived in Hackensack and began his postal career in Bergen County, New Jersey, in 1913.
+
+He turned that knowledge into a trusted system. Readers and postal workers helped gather listings; businesses advertised; travelers shared what they learned. The guide became a collective map of Black hospitality.
+
+== Inside the guide ==
+The Green Book was not simply a directory of Black-owned businesses. It identified places where Black travelers could expect service.
+
+* '''Stay''' — Hotels, motels, resorts, and private tourist homes.
+* '''Eat''' — Restaurants, cafés, taverns, and nightclubs.
+* '''Refuel''' — Service stations, garages, and automotive help.
+* '''Belong''' — Barbers, beauty shops, beaches, and community spaces.
+
+More than 10,000 businesses appeared in the guide over its lifetime, documenting a vast geography of welcome and Black enterprise.
+
+== The New Jersey connection ==
+Beyond Atlantic City’s famous Boardwalk was the Northside: a thriving center of Black tourism, business, and entertainment. Its hotels, cottages, restaurants, and clubs welcomed travelers whom segregation excluded elsewhere.
+
+A 1949 Green Book listed twelve Atlantic City hotels serving African American travelers.
+
+=== The Liberty Hotel ===
+The Liberty Hotel, at 1519 Baltic Avenue and built in 1928, provided lodging, dining, and entertainment for Black visitors. It appeared prominently in Green Book editions and later welcomed guests including Sugar Ray Robinson and Mahalia Jackson. The surviving building entered the National Register of Historic Places in 2020.
+
+=== Kentucky Avenue ===
+Restaurants and clubs turned North Kentucky Avenue into a nationally known center of Black nightlife. Club Harlem, opened in 1935, hosted generations of major performers.
+
+== Timeline ==
+* '''1892''' — Victor Hugo Green is born in New York City.
+* '''1913''' — Green begins work as a postal carrier in Bergen County.
+* '''1936''' — The first Green Book is published.
+* '''1949''' — Twelve Atlantic City hotels appear in the guide.
+* '''1964''' — The Civil Rights Act bars discrimination in many public accommodations.
+* '''1966''' — The Green Book’s publication run ends.
+
+== Why this history matters ==
+The Green Book documents a country in which Black citizens could not assume they would be served because of their race.
+
+It also documents resistance: a network of entrepreneurs, families, and communities that made freedom of movement more possible.
+
+A surviving 1953 edition identifies Leonia, New Jersey, as its place of printing.
+
+== Sources ==
+{{Citation|title=The Negro Motorist Green Book digitized editions|type=book|publication=Library of Congress|date=1936–1966|location=[https://www.loc.gov/item/2016298176/ loc.gov]|confidence=verified}}
+
+{{Citation|title=The Negro Travelers’ Green Book, 1953|type=photo|publication=Smithsonian National Museum of African American History and Culture|date=1953|location=[https://nmaahc.si.edu/object/nmaahc_2021.37 nmaahc.si.edu]|confidence=verified}}
+
+{{Citation|title=The Green Book: An Historic Context|type=archival|publication=National Park Service|location=[https://www.nps.gov/articles/000/the-green-book-an-historic-context.htm nps.gov]|confidence=verified}}
+
+{{Citation|title=Liberty Hotel|type=record|publication=National Park Service|location=[https://www.nps.gov/places/liberty-hotel.htm nps.gov]|confidence=verified}}
+
+{{RelatedPages|era=Jim Crow Era|links=[[Victor Hugo Green]], [[Atlantic City's Northside]], [[Black Entrepreneurship]]}}
+{{ContributeFooter}}
+
+[[Category:Events]]
+[[Category:Eras]]
+[[Category:Places]]
